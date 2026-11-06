@@ -18,11 +18,14 @@ sudo mkdir -p "$WEB_DIR"
 sudo rsync -a --delete --exclude '.git' --exclude 'deploy' --exclude 'README.md' "$REPO_DIR"/ "$WEB_DIR"/
 echo "Pliki skopiowane do $WEB_DIR ($(git rev-parse --short HEAD))."
 
-if command -v nginx >/dev/null 2>&1; then
+if docker ps --format '{{.Names}}' 2>/dev/null | grep -qx caddy || sudo docker ps --format '{{.Names}}' | grep -qx caddy; then
+  # Caddy serwuje pliki prosto z zamontowanego katalogu — przeładowanie niepotrzebne.
+  echo "Gotowe: https://mateuszkielbasa.dev (Caddy)"
+elif command -v nginx >/dev/null 2>&1; then
   sudo nginx -t
   sudo systemctl reload nginx
-  echo "Nginx przeładowany: https://mateuszkielbasa.dev"
+  echo "Gotowe: https://mateuszkielbasa.dev (nginx)"
 else
-  echo "UWAGA: nginx nie jest zainstalowany — serwer WWW trzeba skonfigurować osobno." >&2
+  echo "UWAGA: nie znaleziono Caddy ani nginx — serwer WWW trzeba skonfigurować osobno." >&2
   exit 1
 fi
