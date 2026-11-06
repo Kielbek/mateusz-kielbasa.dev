@@ -1,6 +1,6 @@
 # mateusz-kielbasa.dev
 
-Portfolio — Full-Stack Developer. Jeden plik `index.html` (HTML5 + Tailwind Play CDN + vanilla JS), dwujęzyczny PL/EN.
+Strona sprzedażowa usług: tworzenie stron internetowych i aplikacji (cennik, porównanie pakietów, zamówienie wyceny). Jeden plik `index.html` (HTML5 + Tailwind Play CDN + vanilla JS), dwujęzyczny PL/EN.
 
 ## i18n
 Tekst PL jest w HTML (domyślny, indeksowany). Tłumaczenia EN w atrybutach:
@@ -11,7 +11,8 @@ Wybór języka: `?lang=en` → localStorage → język przeglądarki.
 - Podmień przykładowe dane (liczby, historia zatrudnienia, certyfikaty, case studies, NIP, e-mail, LinkedIn) — E-E-A-T wymaga prawdziwych informacji.
 - Ustaw `FORM_ENDPOINT` w skrypcie (bez niego formularz otwiera `mailto:`).
 - Dodaj `/og-image.png` (1200×630), `/favicon.svg`, `/polityka-prywatnosci`, `sitemap.xml`, `robots.txt`.
-- Artykuły bloga potrzebują osobnych stron pod `/blog/<slug>`.
+- Artykuły poradnika potrzebują osobnych stron pod `/poradnik/<slug>`.
+- Ceny, telefon i realizacje to przykłady — ustaw własne.
 
 ## Czy backend w Spring Boot?
 Na teraz — nie. Statyczny frontend na CDN (Vercel / Netlify / Cloudflare Pages) jest szybszy, tańszy i bezpieczniejszy.

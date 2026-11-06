@@ -2,64 +2,48 @@
 <html lang="pl" class="scroll-smooth">
 <head>
   <!--
-    ============================================================
-    Portfolio — Mateusz Kiełbasa · Full-Stack Developer
-    Jeden plik: HTML5 + Tailwind (CDN) + vanilla JS (PL/EN).
+    Strona sprzedażowa: tworzenie stron internetowych i aplikacji — Mateusz Kiełbasa.
+    Jeden plik: HTML5 + Tailwind (Play CDN) + vanilla JS, dwujęzyczna PL/EN.
 
-    Jak działa tłumaczenie:
-      - Tekst PL jest bezpośrednio w HTML (domyślny język, indeksowany przez Google).
-      - Tekst EN siedzi w atrybutach:
-          data-en="..."            -> zamienia textContent (elementy-liście, bez dzieci)
-          data-en-html="..."       -> zamienia innerHTML (gdy w tekście jest <strong>, <br> itd.)
-          data-en-placeholder / data-en-aria-label / data-en-content / data-en-title
-      - Wybór zapisywany w localStorage + parametr ?lang=en w URL.
+    Tłumaczenia: tekst PL w HTML, EN w atrybutach
+      data-en (tekst) · data-en-html (HTML) · data-en-placeholder · data-en-aria-label · data-en-content
 
-    TODO przed publikacją (E-E-A-T = tylko prawdziwe dane!):
-      [ ] liczby w Hero (lata, projekty), historia zatrudnienia, certyfikaty
-      [ ] case studies w sekcji Projekty (nazwy, wyniki, linki)
-      [ ] adres e-mail, telefon, NIP, link do LinkedIn
-      [ ] FORM_ENDPOINT w skrypcie (np. Formspree / Web3Forms / własne API)
-      [ ] /og-image.png (1200x630), /favicon.svg, /blog/* (osobne strony artykułów)
-    ============================================================
+    TODO przed publikacją (E-E-A-T = tylko prawdziwe dane):
+      [ ] historia zatrudnienia, certyfikaty, realizacje i ich wyniki
+      [ ] e-mail, telefon, NIP, LinkedIn
+      [ ] FORM_ENDPOINT w skrypcie na dole
+      [ ] /og-image.png, /favicon.svg, /polityka-prywatnosci, /poradnik/* (osobne strony artykułów)
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ===== Primary SEO ===== -->
-  <title data-en="Mateusz Kiełbasa — Full-Stack Developer (Java, Spring Boot, React)">Mateusz Kiełbasa — Full-Stack Developer (Java, Spring Boot, React)</title>
+  <title data-en="Websites and web apps for businesses — fixed price, from €900 | Mateusz Kiełbasa">Strony internetowe i aplikacje dla firm — stała cena, od 3 900 zł | Mateusz Kiełbasa</title>
   <meta name="description"
-        content="Full-Stack Developer z 8+ latami doświadczenia. Projektuję i wdrażam szybkie aplikacje webowe w Java/Spring Boot, TypeScript i React. Przejrzysty cennik, gwarancja i wsparcie powdrożeniowe."
-        data-en-content="Full-Stack Developer with 8+ years of experience. I design and ship fast web applications with Java/Spring Boot, TypeScript and React. Transparent pricing, warranty and post-launch support." />
+        content="Zamów stronę internetową, landing page lub aplikację webową. Stała cena w umowie, szczegółowa lista tego, co zawiera pakiet, gwarancja do 60 dni i kod na własność. Bezpłatna wycena w 3 dni."
+        data-en-content="Order a website, landing page or web application. Fixed price in the contract, a detailed list of what each package includes, up to 60-day warranty and you own the code. Free quote within 3 days." />
   <meta name="author" content="Mateusz Kiełbasa" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#FAF9F6" />
+  <meta name="theme-color" content="#F6F4EF" />
   <link rel="canonical" href="https://mateusz-kielbasa.dev/" />
   <link rel="alternate" hreflang="pl" href="https://mateusz-kielbasa.dev/" />
   <link rel="alternate" hreflang="en" href="https://mateusz-kielbasa.dev/?lang=en" />
   <link rel="alternate" hreflang="x-default" href="https://mateusz-kielbasa.dev/" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-  <!-- ===== Open Graph / Social ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mateusz Kiełbasa" />
   <meta property="og:url" content="https://mateusz-kielbasa.dev/" />
-  <meta property="og:title" content="Mateusz Kiełbasa — Full-Stack Developer" data-en-content="Mateusz Kiełbasa — Full-Stack Developer" />
-  <meta property="og:description"
-        content="Szybkie, skalowalne aplikacje webowe w Java/Spring Boot i React. Przejrzysty cennik i gwarancja."
-        data-en-content="Fast, scalable web applications with Java/Spring Boot and React. Transparent pricing and warranty." />
+  <meta property="og:title" content="Strony internetowe i aplikacje dla firm — stała cena" data-en-content="Websites and web apps for businesses — fixed price" />
+  <meta property="og:description" content="Przejrzysty cennik, dokładna lista tego, co wchodzi w cenę, gwarancja i kod na własność." data-en-content="Transparent pricing, an exact list of what's included, warranty and you own the code." />
   <meta property="og:image" content="https://mateusz-kielbasa.dev/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="pl_PL" id="og-locale" />
   <meta property="og:locale:alternate" content="en_US" id="og-locale-alt" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- ===== Fonts ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!-- ===== Tailwind (Play CDN) ===== -->
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
   <script>
     tailwind.config = {
@@ -70,13 +54,12 @@
             mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
           },
           colors: {
-            ivory: { DEFAULT: '#FAF9F6', 100: '#F5F3EE', 200: '#EDEAE3' },
-            ink: '#1C1917',
-          },
-          letterSpacing: { tightest: '-0.045em' },
-          boxShadow: {
-            soft: '0 1px 2px rgba(28,25,23,.04), 0 4px 16px -4px rgba(28,25,23,.06)',
-            lift: '0 2px 4px rgba(28,25,23,.04), 0 16px 40px -12px rgba(28,25,23,.14)',
+            paper: '#F6F4EF',
+            card: '#FBFAF7',
+            ink: '#1A1917',
+            rule: '#D9D5CC',
+            muted: '#6F6B63',
+            accent: '#9A3B1B',
           },
         },
       },
@@ -84,165 +67,124 @@
   </script>
 
   <style>
-    :root { color-scheme: light; }
-    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-    body { font-feature-settings: "cv11", "ss01", "ss03"; }
-    ::selection { background: #E7E5E4; color: #1C1917; }
+    html { -webkit-font-smoothing: antialiased; }
+    body { font-feature-settings: "cv11", "ss03", "tnum"; }
+    ::selection { background: #E4DFD4; }
 
-    /* Fine dotted texture for hero — subtle, no gradients */
-    .dot-grid {
-      background-image: radial-gradient(rgba(120,113,108,.18) 1px, transparent 1px);
-      background-size: 22px 22px;
-      mask-image: linear-gradient(to bottom, #000 30%, transparent 85%);
-      -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 85%);
-    }
+    a.u { text-decoration: underline; text-decoration-color: #BDB7AB; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color .15s, text-decoration-color .15s; }
+    a.u:hover { color: #9A3B1B; text-decoration-color: currentColor; }
 
-    /* Check-list bullets (pricing) */
-    .ck { position: relative; padding-left: 1.6rem; }
-    .ck::before {
-      content: ""; position: absolute; left: 0; top: .2rem; width: 1rem; height: 1rem;
-      border-radius: 9999px; background: #F5F5F4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2344403C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 8.5l2.2 2.2 4.8-5'/%3E%3C/svg%3E") center/0.8rem no-repeat;
-      box-shadow: inset 0 0 0 1px #E7E5E4;
-    }
-    .dark-card .ck::before { background-color: #292524; box-shadow: inset 0 0 0 1px #44403C;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23FAF9F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 8.5l2.2 2.2 4.8-5'/%3E%3C/svg%3E"); }
-    .nx { position: relative; padding-left: 1.6rem; color: #78716C; }
-    .nx::before { content: "–"; position: absolute; left: .3rem; }
+    .dash > li { position: relative; padding-left: 1.1rem; }
+    .dash > li::before { content: "–"; position: absolute; left: 0; color: #A39E94; }
 
-    /* Reveal on scroll */
-    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
-    .reveal.in { opacity: 1; transform: none; }
-
-    /* Language switch fade */
+    [data-en], [data-en-html] { transition: opacity .15s ease; }
     .i18n-fade [data-en], .i18n-fade [data-en-html] { opacity: 0; }
-    [data-en], [data-en-html] { transition: opacity .18s ease; }
 
-    /* Nav active link */
-    .nav-link[aria-current="true"] { color: #1C1917; }
-    .nav-link[aria-current="true"]::after { transform: scaleX(1); }
-    .nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: #1C1917; transform: scaleX(0); transition: transform .3s ease; }
-
-    /* Project details expand */
-    .proj-details { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s ease; }
+    .proj-details { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
     .proj-details > div { overflow: hidden; }
     .proj[data-open="true"] .proj-details { grid-template-rows: 1fr; }
-    .proj[data-open="true"] .chev { transform: rotate(180deg); }
-
+    .proj[data-open="true"] .sign, details[open] .sign { transform: rotate(45deg); }
     details > summary { list-style: none; }
     details > summary::-webkit-details-marker { display: none; }
-    details[open] .plus { transform: rotate(45deg); }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
+    /* Comparison table */
+    .cmp th, .cmp td { padding: .7rem .75rem; border-bottom: 1px solid #E4E0D7; vertical-align: top; }
+    .cmp td:not(:first-child), .cmp th:not(:first-child) { text-align: center; width: 19%; }
+    .cmp td:nth-child(3), .cmp th:nth-child(3) { background: rgba(26,25,23,.035); }
+    .cmp .grp td { padding-top: 1.6rem; border-bottom-color: #1A1917; font-weight: 500; background: transparent; }
+    .yes { color: #1A1917; }
+    .no { color: #B5AFA4; }
+
+    .field { width: 100%; background: transparent; border: 0; border-bottom: 1px solid #C9C4B9; padding: .55rem 0; font-size: 16px; color: #1A1917; outline: none; border-radius: 0; transition: border-color .15s; }
+    .field:focus { border-bottom-color: #1A1917; }
+    .field::placeholder { color: #A39E94; }
+    select.field { appearance: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%236F6B63' stroke-width='1.4'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E") right .2rem center no-repeat; padding-right: 1.5rem; }
+
+    :focus-visible { outline: 2px solid #9A3B1B; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
   </style>
 
-  <!-- ===== Structured data (JSON-LD) — E-E-A-T: kto, co, gdzie, od kiedy ===== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
-        "@id": "https://mateusz-kielbasa.dev/#person",
-        "name": "Mateusz Kiełbasa",
-        "url": "https://mateusz-kielbasa.dev/",
-        "image": "https://mateusz-kielbasa.dev/og-image.png",
-        "jobTitle": "Full-Stack Developer",
-        "description": "Full-Stack Developer specjalizujący się w Java/Spring Boot, TypeScript i React.",
-        "email": "mailto:kontakt@mateusz-kielbasa.dev",
-        "address": { "@type": "PostalAddress", "addressLocality": "Kraków", "addressCountry": "PL" },
-        "knowsLanguage": ["pl", "en"],
-        "knowsAbout": ["Java", "Spring Boot", "TypeScript", "React", "Next.js", "PostgreSQL", "Docker", "Kubernetes", "AWS", "Core Web Vitals", "Technical SEO", "Software Architecture"],
-        "hasCredential": [
-          { "@type": "EducationalOccupationalCredential", "name": "Oracle Certified Professional: Java SE 17 Developer", "credentialCategory": "certification" },
-          { "@type": "EducationalOccupationalCredential", "name": "AWS Certified Developer – Associate", "credentialCategory": "certification" }
-        ],
-        "sameAs": [
-          "https://github.com/kielbek",
-          "https://www.linkedin.com/in/mateusz-kielbasa"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://mateusz-kielbasa.dev/#website",
-        "url": "https://mateusz-kielbasa.dev/",
-        "name": "Mateusz Kiełbasa — Full-Stack Developer",
-        "inLanguage": ["pl-PL", "en-US"],
-        "publisher": { "@id": "https://mateusz-kielbasa.dev/#person" }
-      },
-      {
         "@type": "ProfessionalService",
         "@id": "https://mateusz-kielbasa.dev/#service",
-        "name": "Mateusz Kiełbasa — usługi programistyczne",
-        "url": "https://mateusz-kielbasa.dev/#cennik",
-        "founder": { "@id": "https://mateusz-kielbasa.dev/#person" },
-        "areaServed": ["PL", "EU"],
-        "priceRange": "190 PLN/h – 28 000 PLN+",
+        "name": "Mateusz Kiełbasa — strony internetowe i aplikacje webowe",
+        "url": "https://mateusz-kielbasa.dev/",
+        "image": "https://mateusz-kielbasa.dev/og-image.png",
+        "description": "Projektowanie i tworzenie stron internetowych, landing page'y i aplikacji webowych dla firm. Stała cena, gwarancja, kod na własność.",
+        "email": "kontakt@mateusz-kielbasa.dev",
         "address": { "@type": "PostalAddress", "addressLocality": "Kraków", "addressCountry": "PL" },
+        "areaServed": ["PL", "EU"],
+        "priceRange": "3 900 – 28 000+ PLN",
+        "founder": { "@id": "https://mateusz-kielbasa.dev/#person" },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Pakiety współpracy",
+          "name": "Cennik",
           "itemListElement": [
-            { "@type": "Offer", "name": "Strona firmowa / Landing page",
-              "priceSpecification": { "@type": "PriceSpecification", "minPrice": 6900, "priceCurrency": "PLN", "valueAddedTaxIncluded": false } },
-            { "@type": "Offer", "name": "Aplikacja webowa / MVP",
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing page" },
+              "priceSpecification": { "@type": "PriceSpecification", "price": 3900, "priceCurrency": "PLN", "valueAddedTaxIncluded": false } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Strona firmowa (do 6 podstron)" },
+              "priceSpecification": { "@type": "PriceSpecification", "price": 6900, "priceCurrency": "PLN", "valueAddedTaxIncluded": false } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aplikacja webowa / sklep" },
               "priceSpecification": { "@type": "PriceSpecification", "minPrice": 28000, "priceCurrency": "PLN", "valueAddedTaxIncluded": false } },
-            { "@type": "Offer", "name": "Time & Materials",
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Opieka techniczna" },
+              "priceSpecification": { "@type": "UnitPriceSpecification", "price": 390, "priceCurrency": "PLN", "unitCode": "MON", "valueAddedTaxIncluded": false } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Time & Materials" },
               "priceSpecification": { "@type": "UnitPriceSpecification", "price": 190, "priceCurrency": "PLN", "unitCode": "HUR", "valueAddedTaxIncluded": false } },
-            { "@type": "Offer", "name": "Tech Lead / Fractional CTO",
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tech lead" },
               "priceSpecification": { "@type": "UnitPriceSpecification", "price": 8900, "priceCurrency": "PLN", "unitCode": "MON", "valueAddedTaxIncluded": false } }
           ]
         }
       },
       {
+        "@type": "Person",
+        "@id": "https://mateusz-kielbasa.dev/#person",
+        "name": "Mateusz Kiełbasa",
+        "url": "https://mateusz-kielbasa.dev/#o-mnie",
+        "jobTitle": "Full-stack developer",
+        "knowsLanguage": ["pl", "en"],
+        "knowsAbout": ["Tworzenie stron internetowych", "Aplikacje webowe", "Java", "Spring Boot", "TypeScript", "React", "Next.js", "Astro", "SEO techniczne", "Core Web Vitals"],
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "AGH w Krakowie" },
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "name": "Oracle Certified Professional: Java SE 17 Developer" },
+          { "@type": "EducationalOccupationalCredential", "name": "AWS Certified Developer – Associate" }
+        ],
+        "sameAs": ["https://github.com/kielbek", "https://www.linkedin.com/in/mateusz-kielbasa"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://mateusz-kielbasa.dev/#website",
+        "url": "https://mateusz-kielbasa.dev/",
+        "name": "Mateusz Kiełbasa — strony i aplikacje dla firm",
+        "inLanguage": ["pl-PL", "en-US"],
+        "publisher": { "@id": "https://mateusz-kielbasa.dev/#person" }
+      },
+      {
         "@type": "Blog",
-        "@id": "https://mateusz-kielbasa.dev/#blog",
-        "name": "Blog techniczny — Mateusz Kiełbasa",
-        "url": "https://mateusz-kielbasa.dev/#blog",
+        "@id": "https://mateusz-kielbasa.dev/#poradnik",
+        "name": "Poradnik: jak zamówić stronę internetową",
+        "url": "https://mateusz-kielbasa.dev/poradnik/",
         "inLanguage": "pl-PL",
         "author": { "@id": "https://mateusz-kielbasa.dev/#person" },
         "blogPost": [
-          {
-            "@type": "BlogPosting",
-            "headline": "Spring Boot 3 i wirtualne wątki: kiedy naprawdę przyspieszają API",
-            "description": "Benchmarki Project Loom w realnym serwisie REST: gdzie wirtualne wątki zwiększają przepustowość, a gdzie szkodzą (pinning, pule połączeń JDBC).",
-            "url": "https://mateusz-kielbasa.dev/blog/spring-boot-wirtualne-watki",
-            "datePublished": "2026-10-14",
-            "dateModified": "2026-10-20",
-            "inLanguage": "pl-PL",
-            "keywords": "Spring Boot, Java 21, virtual threads, Project Loom, wydajność API",
-            "wordCount": 2100,
-            "author": { "@id": "https://mateusz-kielbasa.dev/#person" },
-            "publisher": { "@id": "https://mateusz-kielbasa.dev/#person" }
-          },
-          {
-            "@type": "BlogPosting",
-            "headline": "Core Web Vitals 2026: praktyczna checklista optymalizacji INP",
-            "description": "Jak zejść z INP 400 ms do poniżej 200 ms: long tasks, hydracja, event handlery i priorytetyzacja pracy w głównym wątku.",
-            "url": "https://mateusz-kielbasa.dev/blog/core-web-vitals-inp-checklista",
-            "datePublished": "2026-09-02",
-            "dateModified": "2026-09-02",
-            "inLanguage": "pl-PL",
-            "keywords": "Core Web Vitals, INP, wydajność, SEO techniczne, React",
-            "wordCount": 1650,
-            "author": { "@id": "https://mateusz-kielbasa.dev/#person" },
-            "publisher": { "@id": "https://mateusz-kielbasa.dev/#person" }
-          },
-          {
-            "@type": "BlogPosting",
-            "headline": "Modularny monolit zamiast mikroserwisów: architektura dla startupu",
-            "description": "Dlaczego większość MVP nie potrzebuje mikroserwisów. Spring Modulith, granice modułów i ścieżka migracji, gdy produkt urośnie.",
-            "url": "https://mateusz-kielbasa.dev/blog/modularny-monolit-spring-modulith",
-            "datePublished": "2026-07-21",
-            "dateModified": "2026-08-05",
-            "inLanguage": "pl-PL",
-            "keywords": "architektura oprogramowania, modularny monolit, Spring Modulith, mikroserwisy",
-            "wordCount": 2600,
-            "author": { "@id": "https://mateusz-kielbasa.dev/#person" },
-            "publisher": { "@id": "https://mateusz-kielbasa.dev/#person" }
-          }
+          { "@type": "BlogPosting", "headline": "Ile kosztuje strona internetowa w 2026? Rozbicie ceny krok po kroku",
+            "url": "https://mateusz-kielbasa.dev/poradnik/ile-kosztuje-strona-internetowa",
+            "datePublished": "2026-10-14", "dateModified": "2026-10-20", "inLanguage": "pl-PL",
+            "keywords": "ile kosztuje strona internetowa, cena strony www, koszt landing page",
+            "author": { "@id": "https://mateusz-kielbasa.dev/#person" }, "publisher": { "@id": "https://mateusz-kielbasa.dev/#person" } },
+          { "@type": "BlogPosting", "headline": "Jak przygotować się do zamówienia strony: lista rzeczy przed pierwszą rozmową",
+            "url": "https://mateusz-kielbasa.dev/poradnik/jak-zamowic-strone",
+            "datePublished": "2026-09-02", "dateModified": "2026-09-02", "inLanguage": "pl-PL",
+            "keywords": "zamówienie strony internetowej, brief strony, przygotowanie do projektu",
+            "author": { "@id": "https://mateusz-kielbasa.dev/#person" }, "publisher": { "@id": "https://mateusz-kielbasa.dev/#person" } },
+          { "@type": "BlogPosting", "headline": "Szybkość strony a sprzedaż i pozycja w Google: Core Web Vitals bez żargonu",
+            "url": "https://mateusz-kielbasa.dev/poradnik/core-web-vitals",
+            "datePublished": "2026-07-21", "dateModified": "2026-08-05", "inLanguage": "pl-PL",
+            "keywords": "Core Web Vitals, szybkość strony, SEO, konwersja",
+            "author": { "@id": "https://mateusz-kielbasa.dev/#person" }, "publisher": { "@id": "https://mateusz-kielbasa.dev/#person" } }
         ]
       },
       {
@@ -250,15 +192,17 @@
         "@id": "https://mateusz-kielbasa.dev/#faq",
         "mainEntity": [
           { "@type": "Question", "name": "Czy ceny są netto czy brutto?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Wszystkie ceny są cenami netto. Do faktury doliczany jest 23% VAT. Dla klientów z UE poza Polską stosowany jest mechanizm odwrotnego obciążenia." } },
-          { "@type": "Question", "name": "Jak wygląda płatność za projekt?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Projekty o stałej cenie rozliczane są etapami: 30% po podpisaniu umowy, 40% po akceptacji wersji staging, 30% po wdrożeniu produkcyjnym." } },
-          { "@type": "Question", "name": "Kto jest właścicielem kodu?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Ty. Po opłaceniu faktury końcowej przenoszę pełne autorskie prawa majątkowe do kodu, a repozytorium od początku znajduje się na Twoim koncie." } },
+            "acceptedAnswer": { "@type": "Answer", "text": "Netto. Do faktury doliczam 23% VAT; firmy z innych krajów UE rozliczam w mechanizmie odwrotnego obciążenia." } },
+          { "@type": "Question", "name": "Jak wygląda płatność?",
+            "acceptedAnswer": { "@type": "Answer", "text": "30% po podpisaniu umowy, 40% po akceptacji wersji testowej, 30% po uruchomieniu strony." } },
+          { "@type": "Question", "name": "Kto jest właścicielem strony i kodu?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ty. Domena i hosting są zakładane na Ciebie, kod jest w Twoim repozytorium, a po opłaceniu ostatniej faktury przenoszę pełne autorskie prawa majątkowe." } },
           { "@type": "Question", "name": "Co obejmuje gwarancja?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Gwarancja obejmuje bezpłatne usuwanie błędów wynikających z mojego kodu: 30 dni dla stron firmowych i 60 dni dla aplikacji. Czas reakcji na błąd krytyczny to 24 godziny." } },
-          { "@type": "Question", "name": "Czy potrzebuję backendu w Spring Boot dla prostej strony?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Zwykle nie. Strona wizytówka lub portfolio najlepiej działa jako statycznie generowany frontend na CDN. Backend w Spring Boot ma sens przy logowaniu użytkowników, płatnościach, panelu klienta lub złożonej logice biznesowej." } }
+            "acceptedAnswer": { "@type": "Answer", "text": "Bezpłatne poprawki błędów: 14 dni dla landing page, 30 dni dla strony firmowej, 60 dni dla aplikacji." } },
+          { "@type": "Question", "name": "Co muszę przygotować?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Logo, teksty i zdjęcia, jeśli je masz, dostęp do obecnej domeny oraz listę stron, które Ci się podobają. Resztę ustalimy na rozmowie." } },
+          { "@type": "Question", "name": "Czy prosta strona potrzebuje backendu w Spring Boot?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Zwykle nie. Statyczna strona na CDN jest szybsza, tańsza i bezpieczniejsza. Backend ma sens przy kontach użytkowników, płatnościach lub panelu klienta." } }
         ]
       }
     ]
@@ -266,910 +210,552 @@
   </script>
 </head>
 
-<body class="bg-ivory font-sans text-stone-700 antialiased">
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-ink focus:px-4 focus:py-2 focus:text-white"
-     data-en="Skip to content">Przejdź do treści</a>
+<body class="bg-paper font-sans text-[16px] leading-relaxed text-ink">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-3 focus:py-2 focus:text-paper" data-en="Skip to content">Przejdź do treści</a>
 
   <!-- ===================== HEADER ===================== -->
-  <header id="top-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent bg-ivory/80 backdrop-blur-xl transition-colors duration-300">
-    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-      <a href="#start" class="group flex items-center gap-2.5" aria-label="Mateusz Kiełbasa — strona główna" data-en-aria-label="Mateusz Kiełbasa — home">
-        <span class="grid h-8 w-8 place-items-center rounded-lg bg-ink font-mono text-[13px] font-medium text-ivory">mk</span>
-        <span class="text-[15px] font-semibold tracking-tight text-ink">Mateusz Kiełbasa</span>
-      </a>
+  <header id="top-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent bg-paper/90 backdrop-blur transition-colors">
+    <div class="mx-auto flex h-16 max-w-[1120px] items-center justify-between gap-6 px-5 sm:px-8">
+      <a href="#start" class="text-[15px] font-medium leading-tight tracking-[-0.01em]">Mateusz Kiełbasa<span class="hidden text-muted sm:inline"> · <span data-en="websites & web apps">strony i aplikacje</span></span></a>
 
-      <nav aria-label="Główna nawigacja" data-en-aria-label="Main navigation" class="hidden md:block">
-        <ul class="flex items-center gap-7 text-[14px] text-stone-500">
-          <li><a class="nav-link relative transition-colors hover:text-ink" href="#o-mnie" data-en="About">O mnie</a></li>
-          <li><a class="nav-link relative transition-colors hover:text-ink" href="#projekty" data-en="Work">Projekty</a></li>
-          <li><a class="nav-link relative transition-colors hover:text-ink" href="#blog" data-en="Blog">Blog</a></li>
-          <li><a class="nav-link relative transition-colors hover:text-ink" href="#cennik" data-en="Pricing">Cennik</a></li>
-          <li><a class="nav-link relative transition-colors hover:text-ink" href="#kontakt" data-en="Contact">Kontakt</a></li>
+      <nav aria-label="Główna nawigacja" data-en-aria-label="Main navigation" class="hidden lg:block">
+        <ul class="flex gap-6 text-[14px] text-muted">
+          <li><a class="transition-colors hover:text-ink" href="#cennik" data-en="Pricing">Cennik</a></li>
+          <li><a class="transition-colors hover:text-ink" href="#proces" data-en="Process">Jak pracuję</a></li>
+          <li><a class="transition-colors hover:text-ink" href="#realizacje" data-en="Work">Realizacje</a></li>
+          <li><a class="transition-colors hover:text-ink" href="#o-mnie" data-en="About">O mnie</a></li>
+          <li><a class="transition-colors hover:text-ink" href="#faq">FAQ</a></li>
         </ul>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <!-- Language switch -->
-        <div role="group" aria-label="Wybór języka" data-en-aria-label="Language selection"
-             class="relative flex rounded-full bg-stone-200/60 p-0.5 font-mono text-[12px] font-medium">
-          <span id="lang-pill" aria-hidden="true" class="absolute left-0.5 top-0.5 h-[calc(100%-4px)] w-[calc(50%-2px)] rounded-full bg-white shadow-soft transition-transform duration-300 ease-out"></span>
-          <button type="button" class="lang-btn relative z-10 w-10 rounded-full py-1.5 text-ink transition-colors" data-lang="pl" aria-pressed="true" lang="pl">PL</button>
-          <button type="button" class="lang-btn relative z-10 w-10 rounded-full py-1.5 text-stone-500 transition-colors" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      <div class="flex items-center gap-5">
+        <div role="group" aria-label="Wybór języka" data-en-aria-label="Language" class="font-mono text-[12.5px]">
+          <button type="button" class="lang-btn text-ink underline underline-offset-4" data-lang="pl" aria-pressed="true" lang="pl">PL</button>
+          <span class="px-1 text-rule" aria-hidden="true">/</span>
+          <button type="button" class="lang-btn text-muted hover:text-ink" data-lang="en" aria-pressed="false" lang="en">EN</button>
         </div>
-
-        <a href="#kontakt" class="hidden rounded-full bg-ink px-4 py-2 text-[13px] font-medium text-ivory transition hover:bg-stone-700 sm:inline-flex" data-en="Start a project">Rozpocznij projekt</a>
-
-        <button id="menu-btn" type="button" class="grid h-9 w-9 place-items-center rounded-full text-ink hover:bg-stone-200/60 md:hidden"
-                aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu" data-en-aria-label="Open menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
-        </button>
+        <a href="#wycena" class="hidden rounded-[3px] bg-ink px-4 py-2 text-[14px] text-paper transition-colors hover:bg-accent sm:inline-block" data-en="Get a quote">Zamów wycenę</a>
+        <button id="menu-btn" type="button" class="text-[14px] lg:hidden" aria-expanded="false" aria-controls="mobile-menu"><span data-en="Menu">Menu</span></button>
       </div>
     </div>
-
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden border-t border-stone-200 bg-ivory md:hidden">
-      <ul class="mx-auto max-w-6xl space-y-1 px-5 py-4 text-[15px]">
-        <li><a class="block rounded-lg px-3 py-2.5 text-ink hover:bg-stone-100" href="#o-mnie" data-en="About">O mnie</a></li>
-        <li><a class="block rounded-lg px-3 py-2.5 text-ink hover:bg-stone-100" href="#projekty" data-en="Work">Projekty</a></li>
-        <li><a class="block rounded-lg px-3 py-2.5 text-ink hover:bg-stone-100" href="#blog" data-en="Blog">Blog</a></li>
-        <li><a class="block rounded-lg px-3 py-2.5 text-ink hover:bg-stone-100" href="#cennik" data-en="Pricing">Cennik</a></li>
-        <li><a class="block rounded-lg px-3 py-2.5 text-ink hover:bg-stone-100" href="#kontakt" data-en="Contact">Kontakt</a></li>
+    <div id="mobile-menu" class="hidden border-t border-rule bg-paper lg:hidden">
+      <ul class="mx-auto max-w-[1120px] px-5 py-3 text-[16px] sm:px-8">
+        <li><a class="block py-2.5" href="#cennik" data-en="Pricing">Cennik</a></li>
+        <li><a class="block py-2.5" href="#proces" data-en="Process">Jak pracuję</a></li>
+        <li><a class="block py-2.5" href="#realizacje" data-en="Work">Realizacje</a></li>
+        <li><a class="block py-2.5" href="#o-mnie" data-en="About">O mnie</a></li>
+        <li><a class="block py-2.5" href="#faq">FAQ</a></li>
+        <li><a class="block py-2.5 font-medium" href="#wycena" data-en="Get a quote →">Zamów wycenę →</a></li>
       </ul>
     </div>
   </header>
 
   <main id="main">
-    <!-- ===================== HERO ===================== -->
-    <section id="start" class="relative overflow-hidden pt-32 sm:pt-40" aria-labelledby="hero-title">
-      <div class="dot-grid pointer-events-none absolute inset-0 -z-0" aria-hidden="true"></div>
-      <div class="relative mx-auto grid max-w-6xl gap-14 px-5 pb-20 sm:px-8 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:pb-28">
-        <div>
-          <p class="mb-7 inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-[12.5px] text-stone-600 shadow-soft">
-            <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-40"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span></span>
-            <span data-en="Accepting new projects — Q1 2027">Przyjmuję nowe projekty — Q1 2027</span>
-          </p>
-
-          <h1 id="hero-title" class="text-[40px] font-semibold leading-[1.05] tracking-tightest text-ink sm:text-6xl lg:text-[58px] xl:text-[62px]"
-              data-en-html="I build web software that is <span class='text-stone-400'>fast, reliable</span> and pays for itself.">
-            Buduję oprogramowanie webowe, które jest <span class="text-stone-400">szybkie, niezawodne</span> i&nbsp;na siebie zarabia.
-          </h1>
-
-          <p class="mt-6 max-w-xl text-[17px] leading-relaxed text-stone-600 sm:text-lg"
-             data-en-html="I'm Mateusz — a Full-Stack Developer with <strong class='font-medium text-ink'>8+ years</strong> of commercial experience in Java / Spring Boot and TypeScript / React. I take products from the first sketch to production — and stay accountable after launch.">
-            Jestem Mateusz — Full-Stack Developer z <strong class="font-medium text-ink">8+ latami</strong> komercyjnego doświadczenia w Java / Spring Boot oraz TypeScript / React. Prowadzę produkty od pierwszego szkicu do produkcji — i odpowiadam za nie także po wdrożeniu.
-          </p>
-
-          <div class="mt-9 flex flex-wrap items-center gap-3">
-            <a href="#kontakt" class="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[15px] font-medium text-ivory transition hover:bg-stone-700">
-              <span data-en="Book a free 30-min call">Umów bezpłatną rozmowę (30 min)</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <a href="#projekty" class="inline-flex items-center rounded-full border border-stone-300 bg-white/60 px-6 py-3 text-[15px] font-medium text-ink transition hover:border-stone-400 hover:bg-white" data-en="See case studies">Zobacz realizacje</a>
-          </div>
-
-          <dl class="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-stone-200 pt-8">
-            <div>
-              <dt class="text-[12.5px] text-stone-500" data-en="Years in production">Lat w produkcji</dt>
-              <dd class="mt-1 text-3xl font-semibold tracking-tight text-ink">8+</dd>
-            </div>
-            <div>
-              <dt class="text-[12.5px] text-stone-500" data-en="Shipped projects">Wdrożonych projektów</dt>
-              <dd class="mt-1 text-3xl font-semibold tracking-tight text-ink">40+</dd>
-            </div>
-            <div>
-              <dt class="text-[12.5px] text-stone-500" data-en="Avg. Lighthouse">Śr. Lighthouse</dt>
-              <dd class="mt-1 text-3xl font-semibold tracking-tight text-ink">98</dd>
-            </div>
-          </dl>
-        </div>
-
-        <!-- Terminal card -->
-        <div class="reveal">
-          <div class="rounded-2xl border border-stone-200 bg-white shadow-lift">
-            <div class="flex items-center gap-1.5 border-b border-stone-100 px-4 py-3">
-              <span class="h-2.5 w-2.5 rounded-full bg-stone-200"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-stone-200"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-stone-200"></span>
-              <span class="ml-3 font-mono text-[11.5px] text-stone-400">~/mateusz — zsh</span>
-            </div>
-            <div class="space-y-3 p-5 font-mono text-[12.5px] leading-relaxed sm:text-[13px]">
-              <p><span class="text-stone-400">$</span> <span class="text-ink">whoami</span></p>
-              <p class="text-stone-600">mateusz.kielbasa — full-stack engineer</p>
-              <p><span class="text-stone-400">$</span> <span class="text-ink">cat stack.txt</span></p>
-              <div class="grid grid-cols-[88px_1fr] gap-y-1 text-stone-600">
-                <span class="text-stone-400">backend</span><span>java 21 · spring boot 3 · kotlin</span>
-                <span class="text-stone-400">frontend</span><span>typescript · react · next.js</span>
-                <span class="text-stone-400">data</span><span>postgresql · redis · kafka</span>
-                <span class="text-stone-400">infra</span><span>docker · k8s · aws · terraform</span>
-              </div>
-              <p><span class="text-stone-400">$</span> <span class="text-ink">./status --now</span></p>
-              <p class="flex items-center gap-2 text-stone-600"><span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span><span data-en="available · reply within 24h">dostępny · odpowiedź w 24h</span></p>
-              <p class="text-stone-400"><span class="text-stone-400">$</span> <span class="inline-block h-4 w-2 translate-y-0.5 animate-pulse bg-stone-400"></span></p>
-            </div>
-          </div>
-          <p class="mt-4 text-center font-mono text-[11.5px] text-stone-400" data-en="Kraków, PL · remote across EU · B2B / VAT invoice">Kraków, PL · zdalnie w całej UE · B2B / faktura VAT</p>
-        </div>
+    <!-- ===================== HERO / OFFER ===================== -->
+    <section id="start" class="mx-auto max-w-[1120px] px-5 pb-16 pt-32 sm:px-8 sm:pb-20 sm:pt-40" aria-labelledby="hero-title">
+      <p class="text-[14px] text-muted" data-en="Websites, landing pages and web applications for businesses">Strony internetowe, landing page i aplikacje webowe dla firm</p>
+      <h1 id="hero-title" class="mt-4 max-w-[20ch] text-[36px] font-medium leading-[1.1] tracking-[-0.03em] sm:text-[56px]"
+          data-en="A website for your company. Fixed price, fixed date, code you own.">
+        Strona dla Twojej firmy. Stała cena, termin w&nbsp;umowie, kod na własność.
+      </h1>
+      <p class="mt-6 max-w-[56ch] text-[18px] text-muted"
+         data-en="You get one person responsible for everything — from the first call to launch and support. Every package below lists exactly what's included, so you know what you're paying for before we start.">
+        Dostajesz jedną osobę odpowiedzialną za całość — od pierwszej rozmowy po uruchomienie i opiekę. Przy każdym pakiecie poniżej jest dokładna lista tego, co wchodzi w cenę, więc wiesz, za co płacisz, zanim zaczniemy.
+      </p>
+      <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+        <a href="#wycena" class="rounded-[3px] bg-ink px-6 py-3 text-[16px] text-paper transition-colors hover:bg-accent" data-en="Get a free quote">Zamów bezpłatną wycenę</a>
+        <a href="#cennik" class="u text-[16px]" data-en="See prices and packages">Zobacz ceny i pakiety</a>
       </div>
 
-      <!-- Trust strip -->
-      <div class="relative border-y border-stone-200 bg-white/50">
-        <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-5 py-6 text-[13px] text-stone-500 sm:justify-between sm:px-8">
-          <span class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-stone-400" data-en="Teams I've worked with">Pracowałem z zespołami z</span>
-          <span data-en="Fintech">Fintech</span>
-          <span data-en="E-commerce">E-commerce</span>
-          <span data-en="HealthTech">HealthTech</span>
-          <span data-en="Logistics & IoT">Logistyka i IoT</span>
-          <span data-en="B2B SaaS">SaaS B2B</span>
-        </div>
-      </div>
-    </section>
+      <!-- Price anchors -->
+      <ul class="mt-16 grid border-t border-ink sm:grid-cols-3">
+        <li class="border-b border-rule py-5 sm:border-b-0 sm:pr-6">
+          <a href="#cennik" class="group block">
+            <span class="block text-[14px] text-muted">Landing page</span>
+            <span class="mt-1 block text-[26px] tracking-[-0.02em]"><span data-en="€900">3 900 zł</span> <span class="text-[14px] text-muted" data-en="net · 2–3 weeks">netto · 2–3 tyg.</span></span>
+          </a>
+        </li>
+        <li class="border-b border-rule py-5 sm:border-b-0 sm:border-l sm:px-6">
+          <a href="#cennik" class="group block">
+            <span class="block text-[14px] text-muted" data-en="Company website">Strona firmowa</span>
+            <span class="mt-1 block text-[26px] tracking-[-0.02em]"><span data-en="€1,600">6 900 zł</span> <span class="text-[14px] text-muted" data-en="net · 3–5 weeks">netto · 3–5 tyg.</span></span>
+          </a>
+        </li>
+        <li class="py-5 sm:border-l sm:pl-6">
+          <a href="#cennik" class="group block">
+            <span class="block text-[14px] text-muted" data-en="Web app or online store">Aplikacja lub sklep</span>
+            <span class="mt-1 block text-[26px] tracking-[-0.02em]"><span class="text-[15px] text-muted" data-en="from ">od </span><span data-en="€6,500">28 000 zł</span> <span class="text-[14px] text-muted" data-en="net">netto</span></span>
+          </a>
+        </li>
+      </ul>
 
-    <!-- ===================== ABOUT ===================== -->
-    <section id="o-mnie" class="scroll-mt-20 py-24 sm:py-32" aria-labelledby="about-title">
-      <div class="mx-auto max-w-6xl px-5 sm:px-8">
-        <div class="grid gap-16 lg:grid-cols-[.9fr_1.1fr]">
-          <div class="reveal">
-            <p class="font-mono text-[12px] uppercase tracking-[0.16em] text-stone-400">01 — <span data-en="About">O mnie</span></p>
-            <h2 id="about-title" class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-[44px] sm:leading-[1.1]" data-en="Engineering experience, not just a tech stack.">Doświadczenie inżynierskie, nie tylko stack technologiczny.</h2>
-            <div class="mt-6 space-y-4 text-[16.5px] leading-relaxed text-stone-600">
-              <p data-en="For over eight years I've been building systems that handle real money, real traffic and real deadlines — from payment platforms processing millions of transactions to e-commerce stores where every 100 ms of load time shows up in revenue.">Od ponad ośmiu lat buduję systemy, które obsługują prawdziwe pieniądze, prawdziwy ruch i prawdziwe terminy — od platform płatniczych przetwarzających miliony transakcji po sklepy, w których każde 100 ms ładowania widać w przychodach.</p>
-              <p data-en="I work end-to-end: I talk to the business, design the architecture, write the backend and frontend, set up CI/CD and monitoring. You get one accountable person instead of a chain of handoffs.">Pracuję end-to-end: rozmawiam z biznesem, projektuję architekturę, piszę backend i frontend, konfiguruję CI/CD i monitoring. Dostajesz jedną odpowiedzialną osobę zamiast łańcucha przekazań.</p>
-            </div>
-
-            <ul class="mt-10 grid grid-cols-2 gap-3 text-[14px]">
-              <li class="rounded-xl border border-stone-200 bg-white p-4 shadow-soft">
-                <p class="font-mono text-[11px] uppercase tracking-wider text-stone-400" data-en="Certification">Certyfikat</p>
-                <p class="mt-1.5 font-medium text-ink">Oracle OCP — Java SE 17</p>
-              </li>
-              <li class="rounded-xl border border-stone-200 bg-white p-4 shadow-soft">
-                <p class="font-mono text-[11px] uppercase tracking-wider text-stone-400" data-en="Certification">Certyfikat</p>
-                <p class="mt-1.5 font-medium text-ink">AWS Developer — Associate</p>
-              </li>
-              <li class="rounded-xl border border-stone-200 bg-white p-4 shadow-soft">
-                <p class="font-mono text-[11px] uppercase tracking-wider text-stone-400" data-en="Education">Wykształcenie</p>
-                <p class="mt-1.5 font-medium text-ink" data-en="MSc Computer Science, AGH">mgr inż. Informatyki, AGH</p>
-              </li>
-              <li class="rounded-xl border border-stone-200 bg-white p-4 shadow-soft">
-                <p class="font-mono text-[11px] uppercase tracking-wider text-stone-400" data-en="Open source">Open source</p>
-                <p class="mt-1.5 font-medium text-ink"><a href="https://github.com/kielbek" class="underline decoration-stone-300 underline-offset-4 hover:decoration-ink" rel="me noopener" target="_blank">github.com/kielbek</a></p>
-              </li>
-            </ul>
-          </div>
-
-          <div class="space-y-12">
-            <!-- Timeline -->
-            <div class="reveal">
-              <h3 class="text-[13px] font-medium uppercase tracking-[0.12em] text-stone-400" data-en="Experience">Doświadczenie</h3>
-              <ol class="mt-5 divide-y divide-stone-200 border-y border-stone-200">
-                <li class="grid gap-2 py-6 sm:grid-cols-[140px_1fr]">
-                  <p class="font-mono text-[12.5px] text-stone-400"><time datetime="2023">2023</time> — <span data-en="now">obecnie</span></p>
-                  <div>
-                    <p class="font-medium text-ink" data-en="Independent Full-Stack Engineer & Tech Lead">Niezależny Full-Stack Engineer i Tech Lead</p>
-                    <p class="mt-1.5 text-[15px] leading-relaxed text-stone-600" data-en="15+ products for startups and SMEs across PL, DE and UK. Fractional tech lead for two SaaS companies (teams of 4–9 developers).">15+ produktów dla startupów i firm MŚP z PL, DE i UK. Fractional tech lead w dwóch firmach SaaS (zespoły 4–9 developerów).</p>
-                  </div>
-                </li>
-                <li class="grid gap-2 py-6 sm:grid-cols-[140px_1fr]">
-                  <p class="font-mono text-[12.5px] text-stone-400"><time datetime="2020">2020</time> — <time datetime="2023">2023</time></p>
-                  <div>
-                    <p class="font-medium text-ink" data-en="Senior Java Developer · Fintech">Senior Java Developer · Fintech</p>
-                    <p class="mt-1.5 text-[15px] leading-relaxed text-stone-600" data-en="Payment microservices (Spring Boot, Kafka) handling 3M+ transactions per month. Cut p95 latency from 850 ms to 140 ms.">Mikroserwisy płatnicze (Spring Boot, Kafka) obsługujące 3 mln+ transakcji miesięcznie. Obniżenie latencji p95 z 850 ms do 140 ms.</p>
-                  </div>
-                </li>
-                <li class="grid gap-2 py-6 sm:grid-cols-[140px_1fr]">
-                  <p class="font-mono text-[12.5px] text-stone-400"><time datetime="2017">2017</time> — <time datetime="2020">2020</time></p>
-                  <div>
-                    <p class="font-medium text-ink" data-en="Full-Stack Developer · E-commerce">Full-Stack Developer · E-commerce</p>
-                    <p class="mt-1.5 text-[15px] leading-relaxed text-stone-600" data-en="Rebuilt a store platform (Java + React) serving 400k monthly users; migration from on-prem to AWS.">Przebudowa platformy sklepowej (Java + React) obsługującej 400 tys. użytkowników miesięcznie; migracja z on-premise do AWS.</p>
-                  </div>
-                </li>
-              </ol>
-            </div>
-
-            <!-- Skills -->
-            <div class="reveal">
-              <h3 class="text-[13px] font-medium uppercase tracking-[0.12em] text-stone-400" data-en="Expertise">Kompetencje</h3>
-              <div class="mt-5 grid gap-px overflow-hidden rounded-2xl border border-stone-200 bg-stone-200 sm:grid-cols-2">
-                <div class="bg-white p-5">
-                  <p class="font-medium text-ink">Backend</p>
-                  <p class="mt-2 font-mono text-[12.5px] leading-relaxed text-stone-500">Java 21, Spring Boot 3, Spring Security, Hibernate/JPA, REST, GraphQL, Kafka</p>
-                </div>
-                <div class="bg-white p-5">
-                  <p class="font-medium text-ink">Frontend</p>
-                  <p class="mt-2 font-mono text-[12.5px] leading-relaxed text-stone-500">TypeScript, React, Next.js, Astro, Tailwind CSS, Playwright</p>
-                </div>
-                <div class="bg-white p-5">
-                  <p class="font-medium text-ink" data-en="Data & Cloud">Dane i chmura</p>
-                  <p class="mt-2 font-mono text-[12.5px] leading-relaxed text-stone-500">PostgreSQL, Redis, Elasticsearch, AWS, Docker, Kubernetes, Terraform</p>
-                </div>
-                <div class="bg-white p-5">
-                  <p class="font-medium text-ink" data-en="Quality & Performance">Jakość i wydajność</p>
-                  <p class="mt-2 font-mono text-[12.5px] leading-relaxed text-stone-500">JUnit 5, Testcontainers, OWASP, Core Web Vitals, OpenTelemetry</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- How I work -->
-            <div class="reveal">
-              <h3 class="text-[13px] font-medium uppercase tracking-[0.12em] text-stone-400" data-en="How I work">Jak pracuję</h3>
-              <ol class="mt-5 grid gap-4 sm:grid-cols-2">
-                <li class="flex gap-4"><span class="font-mono text-[12px] text-stone-400">01</span><p class="text-[15px] leading-relaxed text-stone-600"><strong class="font-medium text-ink" data-en="Discovery first.">Najpierw zrozumienie.</strong> <span data-en="Goals, users and metrics before a single line of code.">Cele, użytkownicy i metryki, zanim powstanie linijka kodu.</span></p></li>
-                <li class="flex gap-4"><span class="font-mono text-[12px] text-stone-400">02</span><p class="text-[15px] leading-relaxed text-stone-600"><strong class="font-medium text-ink" data-en="Small, visible steps.">Małe, widoczne kroki.</strong> <span data-en="A demo every two weeks, staging access from week one.">Demo co dwa tygodnie, dostęp do stagingu od pierwszego tygodnia.</span></p></li>
-                <li class="flex gap-4"><span class="font-mono text-[12px] text-stone-400">03</span><p class="text-[15px] leading-relaxed text-stone-600"><strong class="font-medium text-ink" data-en="Boring, proven tech.">Sprawdzona technologia.</strong> <span data-en="I choose tools your next developer will also understand.">Wybieram narzędzia, które zrozumie też Twój kolejny developer.</span></p></li>
-                <li class="flex gap-4"><span class="font-mono text-[12px] text-stone-400">04</span><p class="text-[15px] leading-relaxed text-stone-600"><strong class="font-medium text-ink" data-en="Ownership after launch.">Odpowiedzialność po wdrożeniu.</strong> <span data-en="Warranty, monitoring and documentation as standard.">Gwarancja, monitoring i dokumentacja w standardzie.</span></p></li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== PROJECTS ===================== -->
-    <section id="projekty" class="scroll-mt-20 border-t border-stone-200 bg-ivory-100/60 py-24 sm:py-32" aria-labelledby="projects-title">
-      <div class="mx-auto max-w-6xl px-5 sm:px-8">
-        <div class="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-          <div class="reveal max-w-2xl">
-            <p class="font-mono text-[12px] uppercase tracking-[0.16em] text-stone-400">02 — <span data-en="Selected work">Wybrane realizacje</span></p>
-            <h2 id="projects-title" class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-[44px] sm:leading-[1.1]" data-en="Projects measured by outcomes.">Projekty mierzone rezultatami.</h2>
-            <p class="mt-4 text-[16.5px] leading-relaxed text-stone-600" data-en="Each case study shows the problem, the stack and the numbers after launch. Click a card for details.">Każde case study pokazuje problem, stack i liczby po wdrożeniu. Kliknij kartę, aby zobaczyć szczegóły.</p>
-          </div>
-          <div role="tablist" aria-label="Filtruj projekty" data-en-aria-label="Filter projects" class="flex flex-wrap gap-2 text-[13px]">
-            <button role="tab" aria-selected="true" class="filter-btn rounded-full border border-ink bg-ink px-4 py-1.5 text-ivory transition" data-filter="all" data-en="All">Wszystkie</button>
-            <button role="tab" aria-selected="false" class="filter-btn rounded-full border border-stone-300 bg-white px-4 py-1.5 text-stone-600 transition hover:border-stone-400" data-filter="saas">SaaS</button>
-            <button role="tab" aria-selected="false" class="filter-btn rounded-full border border-stone-300 bg-white px-4 py-1.5 text-stone-600 transition hover:border-stone-400" data-filter="ecommerce">E-commerce</button>
-            <button role="tab" aria-selected="false" class="filter-btn rounded-full border border-stone-300 bg-white px-4 py-1.5 text-stone-600 transition hover:border-stone-400" data-filter="data" data-en="Data / IoT">Dane / IoT</button>
-          </div>
-        </div>
-
-        <div id="projects-grid" class="mt-12 grid gap-6 md:grid-cols-2">
-          <!-- Project 1 -->
-          <article class="proj reveal group rounded-2xl border border-stone-200 bg-white shadow-soft transition duration-300 hover:-translate-y-0.5 hover:shadow-lift" data-cat="saas" data-open="false">
-            <div class="flex items-start justify-between gap-4 border-b border-stone-100 p-6 sm:p-7">
-              <div>
-                <p class="font-mono text-[11.5px] uppercase tracking-wider text-stone-400" data-en="B2B SaaS · Fintech · 2025">SaaS B2B · Fintech · 2025</p>
-                <h3 class="mt-2 text-xl font-semibold tracking-tight text-ink">LedgerFlow</h3>
-                <p class="mt-2 text-[15px] leading-relaxed text-stone-600" data-en="Invoicing and cash-flow platform for SMEs, integrated with the Polish KSeF e-invoicing system.">Platforma fakturowania i cash-flow dla firm MŚP zintegrowana z Krajowym Systemem e-Faktur (KSeF).</p>
-              </div>
-              <div class="shrink-0 rounded-xl bg-stone-50 px-3 py-2 text-right ring-1 ring-stone-200">
-                <p class="text-2xl font-semibold tracking-tight text-ink">−62%</p>
-                <p class="text-[11px] text-stone-500" data-en="processing time">czasu obsługi</p>
-              </div>
-            </div>
-            <div class="p-6 sm:p-7">
-              <ul class="flex flex-wrap gap-1.5 font-mono text-[11.5px] text-stone-600" aria-label="Technologie" data-en-aria-label="Technologies">
-                <li class="rounded-md bg-stone-100 px-2 py-1">Spring Boot 3</li><li class="rounded-md bg-stone-100 px-2 py-1">PostgreSQL</li><li class="rounded-md bg-stone-100 px-2 py-1">Kafka</li><li class="rounded-md bg-stone-100 px-2 py-1">React</li><li class="rounded-md bg-stone-100 px-2 py-1">AWS ECS</li>
-              </ul>
-              <div class="proj-details"><div>
-                <dl class="mt-6 space-y-4 text-[14.5px] leading-relaxed">
-                  <div><dt class="font-medium text-ink" data-en="Challenge">Wyzwanie</dt><dd class="mt-1 text-stone-600" data-en="Accountants re-typed invoices manually between three tools; month-end closing took 4 days.">Księgowi ręcznie przepisywali faktury między trzema narzędziami; zamknięcie miesiąca trwało 4 dni.</dd></div>
-                  <div><dt class="font-medium text-ink" data-en="Solution">Rozwiązanie</dt><dd class="mt-1 text-stone-600" data-en="Modular monolith with event-driven KSeF and bank integrations, OCR import and role-based access for accounting firms.">Modularny monolit z integracją KSeF i bankami opartą o zdarzenia, import OCR oraz role dla biur rachunkowych.</dd></div>
-                  <div><dt class="font-medium text-ink" data-en="Results">Rezultaty</dt>
-                    <dd class="mt-2 grid grid-cols-3 gap-2 text-center">
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">12k</b><span class="text-[11.5px] text-stone-500" data-en="users">użytkowników</span></span>
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">99.95%</b><span class="text-[11.5px] text-stone-500">uptime</span></span>
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">4 → 1 d</b><span class="text-[11.5px] text-stone-500" data-en="month close">zamknięcie</span></span>
-                    </dd>
-                  </div>
-                </dl>
-              </div></div>
-              <button type="button" class="proj-toggle mt-6 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-ink" aria-expanded="false">
-                <span data-en="Case study details">Szczegóły case study</span>
-                <svg class="chev transition-transform duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="proj reveal group rounded-2xl border border-stone-200 bg-white shadow-soft transition duration-300 hover:-translate-y-0.5 hover:shadow-lift" data-cat="ecommerce" data-open="false">
-            <div class="flex items-start justify-between gap-4 border-b border-stone-100 p-6 sm:p-7">
-              <div>
-                <p class="font-mono text-[11.5px] uppercase tracking-wider text-stone-400">E-commerce · Headless · 2025</p>
-                <h3 class="mt-2 text-xl font-semibold tracking-tight text-ink">Atelier Commerce</h3>
-                <p class="mt-2 text-[15px] leading-relaxed text-stone-600" data-en="Headless storefront migration for a premium furniture brand selling in 6 EU countries.">Migracja na headless commerce dla marki mebli premium sprzedającej w 6 krajach UE.</p>
-              </div>
-              <div class="shrink-0 rounded-xl bg-stone-50 px-3 py-2 text-right ring-1 ring-stone-200">
-                <p class="text-2xl font-semibold tracking-tight text-ink">+27%</p>
-                <p class="text-[11px] text-stone-500" data-en="conversion">konwersji</p>
-              </div>
-            </div>
-            <div class="p-6 sm:p-7">
-              <ul class="flex flex-wrap gap-1.5 font-mono text-[11.5px] text-stone-600" aria-label="Technologie" data-en-aria-label="Technologies">
-                <li class="rounded-md bg-stone-100 px-2 py-1">Next.js</li><li class="rounded-md bg-stone-100 px-2 py-1">Spring Boot</li><li class="rounded-md bg-stone-100 px-2 py-1">Redis</li><li class="rounded-md bg-stone-100 px-2 py-1">Stripe</li><li class="rounded-md bg-stone-100 px-2 py-1">Vercel</li>
-              </ul>
-              <div class="proj-details"><div>
-                <dl class="mt-6 space-y-4 text-[14.5px] leading-relaxed">
-                  <div><dt class="font-medium text-ink" data-en="Challenge">Wyzwanie</dt><dd class="mt-1 text-stone-600" data-en="A legacy theme with 3.8 s LCP on mobile and frequent checkout errors during campaigns.">Przestarzały szablon z LCP 3,8 s na mobile i częstymi błędami koszyka w trakcie kampanii.</dd></div>
-                  <div><dt class="font-medium text-ink" data-en="Solution">Rozwiązanie</dt><dd class="mt-1 text-stone-600" data-en="Static product pages with on-demand revalidation, a Spring Boot pricing/stock API with Redis cache and a redesigned 2-step checkout.">Statyczne strony produktów z rewalidacją na żądanie, API cen i stanów w Spring Boot z cache Redis oraz nowy, 2-krokowy checkout.</dd></div>
-                  <div><dt class="font-medium text-ink" data-en="Results">Rezultaty</dt>
-                    <dd class="mt-2 grid grid-cols-3 gap-2 text-center">
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">1.2 s</b><span class="text-[11.5px] text-stone-500" data-en="LCP mobile">LCP mobile</span></span>
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">100</b><span class="text-[11.5px] text-stone-500">Lighthouse SEO</span></span>
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">−41%</b><span class="text-[11.5px] text-stone-500" data-en="cart abandon">porzuceń</span></span>
-                    </dd>
-                  </div>
-                </dl>
-              </div></div>
-              <button type="button" class="proj-toggle mt-6 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-ink" aria-expanded="false">
-                <span data-en="Case study details">Szczegóły case study</span>
-                <svg class="chev transition-transform duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="proj reveal group rounded-2xl border border-stone-200 bg-white shadow-soft transition duration-300 hover:-translate-y-0.5 hover:shadow-lift" data-cat="saas" data-open="false">
-            <div class="flex items-start justify-between gap-4 border-b border-stone-100 p-6 sm:p-7">
-              <div>
-                <p class="font-mono text-[11.5px] uppercase tracking-wider text-stone-400" data-en="SaaS · HealthTech · 2024">SaaS · HealthTech · 2024</p>
-                <h3 class="mt-2 text-xl font-semibold tracking-tight text-ink">ClinicDesk</h3>
-                <p class="mt-2 text-[15px] leading-relaxed text-stone-600" data-en="Online booking and patient communication system for a network of 40 private clinics.">System rezerwacji online i komunikacji z pacjentem dla sieci 40 prywatnych przychodni.</p>
-              </div>
-              <div class="shrink-0 rounded-xl bg-stone-50 px-3 py-2 text-right ring-1 ring-stone-200">
-                <p class="text-2xl font-semibold tracking-tight text-ink">−35%</p>
-                <p class="text-[11px] text-stone-500" data-en="no-shows">nieobecności</p>
-              </div>
-            </div>
-            <div class="p-6 sm:p-7">
-              <ul class="flex flex-wrap gap-1.5 font-mono text-[11.5px] text-stone-600" aria-label="Technologie" data-en-aria-label="Technologies">
-                <li class="rounded-md bg-stone-100 px-2 py-1">Spring Boot</li><li class="rounded-md bg-stone-100 px-2 py-1">Spring Security</li><li class="rounded-md bg-stone-100 px-2 py-1">React</li><li class="rounded-md bg-stone-100 px-2 py-1">PostgreSQL</li><li class="rounded-md bg-stone-100 px-2 py-1">Twilio</li>
-              </ul>
-              <div class="proj-details"><div>
-                <dl class="mt-6 space-y-4 text-[14.5px] leading-relaxed">
-                  <div><dt class="font-medium text-ink" data-en="Challenge">Wyzwanie</dt><dd class="mt-1 text-stone-600" data-en="Phone-only bookings, no reminders and medical data scattered across spreadsheets (GDPR risk).">Rezerwacje wyłącznie telefoniczne, brak przypomnień i dane medyczne rozproszone w arkuszach (ryzyko RODO).</dd></div>
-                  <div><dt class="font-medium text-ink" data-en="Solution">Rozwiązanie</dt><dd class="mt-1 text-stone-600" data-en="Multi-tenant booking engine, SMS/e-mail reminders, audit log and encryption of sensitive data at rest.">Wielodostępny silnik rezerwacji, przypomnienia SMS/e-mail, dziennik audytowy i szyfrowanie danych wrażliwych.</dd></div>
-                  <div><dt class="font-medium text-ink" data-en="Results">Rezultaty</dt>
-                    <dd class="mt-2 grid grid-cols-3 gap-2 text-center">
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">58%</b><span class="text-[11.5px] text-stone-500" data-en="online bookings">rezerwacji online</span></span>
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">40</b><span class="text-[11.5px] text-stone-500" data-en="clinics">placówek</span></span>
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">0</b><span class="text-[11.5px] text-stone-500" data-en="incidents">incydentów</span></span>
-                    </dd>
-                  </div>
-                </dl>
-              </div></div>
-              <button type="button" class="proj-toggle mt-6 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-ink" aria-expanded="false">
-                <span data-en="Case study details">Szczegóły case study</span>
-                <svg class="chev transition-transform duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- Project 4 -->
-          <article class="proj reveal group rounded-2xl border border-stone-200 bg-white shadow-soft transition duration-300 hover:-translate-y-0.5 hover:shadow-lift" data-cat="data" data-open="false">
-            <div class="flex items-start justify-between gap-4 border-b border-stone-100 p-6 sm:p-7">
-              <div>
-                <p class="font-mono text-[11.5px] uppercase tracking-wider text-stone-400" data-en="IoT · Logistics · 2024">IoT · Logistyka · 2024</p>
-                <h3 class="mt-2 text-xl font-semibold tracking-tight text-ink">FleetPulse</h3>
-                <p class="mt-2 text-[15px] leading-relaxed text-stone-600" data-en="Real-time telemetry dashboard for a fleet of 1,800 delivery vehicles.">Panel telemetrii w czasie rzeczywistym dla floty 1800 pojazdów dostawczych.</p>
-              </div>
-              <div class="shrink-0 rounded-xl bg-stone-50 px-3 py-2 text-right ring-1 ring-stone-200">
-                <p class="text-2xl font-semibold tracking-tight text-ink">2M</p>
-                <p class="text-[11px] text-stone-500" data-en="events / day">zdarzeń / dzień</p>
-              </div>
-            </div>
-            <div class="p-6 sm:p-7">
-              <ul class="flex flex-wrap gap-1.5 font-mono text-[11.5px] text-stone-600" aria-label="Technologie" data-en-aria-label="Technologies">
-                <li class="rounded-md bg-stone-100 px-2 py-1">Spring WebFlux</li><li class="rounded-md bg-stone-100 px-2 py-1">TimescaleDB</li><li class="rounded-md bg-stone-100 px-2 py-1">WebSockets</li><li class="rounded-md bg-stone-100 px-2 py-1">React</li><li class="rounded-md bg-stone-100 px-2 py-1">Kubernetes</li>
-              </ul>
-              <div class="proj-details"><div>
-                <dl class="mt-6 space-y-4 text-[14.5px] leading-relaxed">
-                  <div><dt class="font-medium text-ink" data-en="Challenge">Wyzwanie</dt><dd class="mt-1 text-stone-600" data-en="Dispatchers saw vehicle positions with a 5-minute delay; fuel theft and idling went unnoticed.">Dyspozytorzy widzieli pozycje pojazdów z 5-minutowym opóźnieniem; kradzieże paliwa i postoje były niezauważalne.</dd></div>
-                  <div><dt class="font-medium text-ink" data-en="Solution">Rozwiązanie</dt><dd class="mt-1 text-stone-600" data-en="Reactive ingestion pipeline, time-series storage with continuous aggregates and a live map with anomaly alerts.">Reaktywny pipeline danych, baza szeregów czasowych z ciągłymi agregatami i mapa na żywo z alertami anomalii.</dd></div>
-                  <div><dt class="font-medium text-ink" data-en="Results">Rezultaty</dt>
-                    <dd class="mt-2 grid grid-cols-3 gap-2 text-center">
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">&lt;120 ms</b><span class="text-[11.5px] text-stone-500">p95</span></span>
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">−9%</b><span class="text-[11.5px] text-stone-500" data-en="fuel costs">kosztów paliwa</span></span>
-                      <span class="rounded-lg bg-stone-50 p-2 ring-1 ring-stone-200"><b class="block text-ink">2 s</b><span class="text-[11.5px] text-stone-500" data-en="map latency">opóźnienie mapy</span></span>
-                    </dd>
-                  </div>
-                </dl>
-              </div></div>
-              <button type="button" class="proj-toggle mt-6 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-ink" aria-expanded="false">
-                <span data-en="Case study details">Szczegóły case study</span>
-                <svg class="chev transition-transform duration-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== BLOG ===================== -->
-    <section id="blog" class="scroll-mt-20 py-24 sm:py-32" aria-labelledby="blog-title">
-      <div class="mx-auto max-w-6xl px-5 sm:px-8">
-        <div class="reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div class="max-w-2xl">
-            <p class="font-mono text-[12px] uppercase tracking-[0.16em] text-stone-400">03 — <span data-en="Writing">Blog</span></p>
-            <h2 id="blog-title" class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-[44px] sm:leading-[1.1]" data-en="Notes from production.">Notatki z produkcji.</h2>
-            <p class="mt-4 text-[16.5px] leading-relaxed text-stone-600" data-en="Technical articles based on real projects — with benchmarks, code and the trade-offs nobody puts in the docs.">Artykuły techniczne oparte na prawdziwych projektach — z benchmarkami, kodem i kompromisami, o których nie piszą w dokumentacji.</p>
-          </div>
-          <a href="/blog/" class="inline-flex items-center gap-1.5 text-[14px] font-medium text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink" data-en="All articles →">Wszystkie artykuły →</a>
-        </div>
-
-        <div class="mt-12 grid gap-6 lg:grid-cols-3">
-          <article class="reveal flex flex-col rounded-2xl border border-stone-200 bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-0.5 hover:shadow-lift">
-            <div class="flex items-center gap-3 font-mono text-[11.5px] text-stone-400">
-              <time datetime="2026-10-14" data-en="Oct 14, 2026">14 paź 2026</time><span aria-hidden="true">·</span><span data-en="9 min read">9 min czytania</span>
-            </div>
-            <h3 class="mt-4 text-[19px] font-semibold leading-snug tracking-tight text-ink">
-              <a href="/blog/spring-boot-wirtualne-watki" class="hover:underline hover:decoration-stone-300 hover:underline-offset-4" data-en="Spring Boot 3 and virtual threads: when they actually speed up your API">Spring Boot 3 i wirtualne wątki: kiedy naprawdę przyspieszają API</a>
-            </h3>
-            <p class="mt-3 flex-1 text-[15px] leading-relaxed text-stone-600" data-en="Project Loom benchmarks on a real REST service: where virtual threads raise throughput — and where they hurt (pinning, JDBC connection pools).">Benchmarki Project Loom w realnym serwisie REST: gdzie wirtualne wątki zwiększają przepustowość, a gdzie szkodzą (pinning, pule połączeń JDBC).</p>
-            <div class="mt-6 flex flex-wrap gap-1.5 font-mono text-[11px] text-stone-500">
-              <span class="rounded-md bg-stone-100 px-2 py-1">Java 21</span><span class="rounded-md bg-stone-100 px-2 py-1">Spring Boot</span><span class="rounded-md bg-stone-100 px-2 py-1" data-en="Performance">Wydajność</span>
-            </div>
-          </article>
-
-          <article class="reveal flex flex-col rounded-2xl border border-stone-200 bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-0.5 hover:shadow-lift">
-            <div class="flex items-center gap-3 font-mono text-[11.5px] text-stone-400">
-              <time datetime="2026-09-02" data-en="Sep 2, 2026">2 wrz 2026</time><span aria-hidden="true">·</span><span data-en="7 min read">7 min czytania</span>
-            </div>
-            <h3 class="mt-4 text-[19px] font-semibold leading-snug tracking-tight text-ink">
-              <a href="/blog/core-web-vitals-inp-checklista" class="hover:underline hover:decoration-stone-300 hover:underline-offset-4" data-en="Core Web Vitals 2026: a practical INP optimisation checklist">Core Web Vitals 2026: praktyczna checklista optymalizacji INP</a>
-            </h3>
-            <p class="mt-3 flex-1 text-[15px] leading-relaxed text-stone-600" data-en="How to go from 400 ms INP to under 200 ms: long tasks, hydration, event handlers and prioritising main-thread work.">Jak zejść z INP 400 ms do poniżej 200 ms: long tasks, hydracja, event handlery i priorytetyzacja pracy w głównym wątku.</p>
-            <div class="mt-6 flex flex-wrap gap-1.5 font-mono text-[11px] text-stone-500">
-              <span class="rounded-md bg-stone-100 px-2 py-1">Core Web Vitals</span><span class="rounded-md bg-stone-100 px-2 py-1">React</span><span class="rounded-md bg-stone-100 px-2 py-1" data-en="Technical SEO">SEO techniczne</span>
-            </div>
-          </article>
-
-          <article class="reveal flex flex-col rounded-2xl border border-stone-200 bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-0.5 hover:shadow-lift">
-            <div class="flex items-center gap-3 font-mono text-[11.5px] text-stone-400">
-              <time datetime="2026-07-21" data-en="Jul 21, 2026">21 lip 2026</time><span aria-hidden="true">·</span><span data-en="11 min read">11 min czytania</span>
-            </div>
-            <h3 class="mt-4 text-[19px] font-semibold leading-snug tracking-tight text-ink">
-              <a href="/blog/modularny-monolit-spring-modulith" class="hover:underline hover:decoration-stone-300 hover:underline-offset-4" data-en="A modular monolith instead of microservices: architecture for a startup">Modularny monolit zamiast mikroserwisów: architektura dla startupu</a>
-            </h3>
-            <p class="mt-3 flex-1 text-[15px] leading-relaxed text-stone-600" data-en="Why most MVPs don't need microservices. Spring Modulith, module boundaries and a migration path for when the product grows.">Dlaczego większość MVP nie potrzebuje mikroserwisów. Spring Modulith, granice modułów i ścieżka migracji, gdy produkt urośnie.</p>
-            <div class="mt-6 flex flex-wrap gap-1.5 font-mono text-[11px] text-stone-500">
-              <span class="rounded-md bg-stone-100 px-2 py-1" data-en="Architecture">Architektura</span><span class="rounded-md bg-stone-100 px-2 py-1">Spring Modulith</span><span class="rounded-md bg-stone-100 px-2 py-1">DDD</span>
-            </div>
-          </article>
-        </div>
-
-        <p class="reveal mt-8 flex items-center gap-3 text-[13px] text-stone-500">
-          <span class="grid h-7 w-7 place-items-center rounded-full bg-ink font-mono text-[10px] text-ivory">mk</span>
-          <span data-en="Written and technically reviewed by Mateusz Kiełbasa. Code samples tested on Java 21 / Spring Boot 3.4.">Autor i weryfikacja techniczna: Mateusz Kiełbasa. Przykłady kodu przetestowane na Java 21 / Spring Boot 3.4.</span>
-        </p>
-      </div>
+      <ul class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-[14px] text-muted">
+        <li data-en="✓ Pay in stages: 30 / 40 / 30%">✓ Płatność etapami: 30 / 40 / 30%</li>
+        <li data-en="✓ Up to 60-day warranty">✓ Gwarancja do 60 dni</li>
+        <li data-en="✓ Domain, code and copyright are yours">✓ Domena, kod i prawa autorskie są Twoje</li>
+        <li data-en="✓ VAT invoice">✓ Faktura VAT</li>
+      </ul>
     </section>
 
     <!-- ===================== PRICING ===================== -->
-    <section id="cennik" class="scroll-mt-20 border-t border-stone-200 bg-ivory-100/60 py-24 sm:py-32" aria-labelledby="pricing-title">
-      <div class="mx-auto max-w-6xl px-5 sm:px-8">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <p class="font-mono text-[12px] uppercase tracking-[0.16em] text-stone-400">04 — <span data-en="Pricing">Cennik</span></p>
-          <h2 id="pricing-title" class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-[44px] sm:leading-[1.1]" data-en="Transparent pricing. No surprises.">Przejrzyste ceny. Bez niespodzianek.</h2>
-          <p class="mt-4 text-[16.5px] leading-relaxed text-stone-600" data-en="Every package lists exactly what's included — and what isn't. Final quote after a free 30-minute call, valid for 30 days.">Każdy pakiet ma dokładną listę tego, co wchodzi w cenę — i czego nie obejmuje. Wycena końcowa po bezpłatnej 30-minutowej rozmowie, ważna 30 dni.</p>
-          <p class="mt-3 font-mono text-[12px] text-stone-400" data-en="All prices net (excl. VAT) · B2B contract · VAT invoice">Wszystkie ceny netto (+23% VAT) · umowa B2B · faktura VAT</p>
+    <section id="cennik" class="scroll-mt-16 border-t border-rule bg-card" aria-labelledby="pricing-title">
+      <div class="mx-auto max-w-[1120px] px-5 py-16 sm:px-8 sm:py-24">
+        <div class="grid gap-4 md:grid-cols-12">
+          <h2 id="pricing-title" class="text-[32px] font-medium leading-tight tracking-[-0.025em] sm:text-[40px] md:col-span-6" data-en="Prices and what exactly you get">Cennik i co dokładnie dostajesz</h2>
+          <p class="text-[16px] text-muted md:col-span-5 md:col-start-8 md:pt-2" data-en="Net prices. The final price is in the written proposal after a free 30-minute call and doesn't change unless you change the scope.">Ceny netto. Ostateczna cena jest w pisemnej ofercie po bezpłatnej 30-minutowej rozmowie i nie zmienia się, dopóki nie zmienisz zakresu.</p>
         </div>
 
-        <div class="mt-14 grid gap-6 lg:grid-cols-2">
-          <!-- ===== Package 1: Website ===== -->
-          <article class="reveal flex flex-col rounded-3xl border border-stone-200 bg-white p-7 shadow-soft sm:p-9" aria-labelledby="pkg1">
-            <header>
-              <p class="font-mono text-[11.5px] uppercase tracking-wider text-stone-400" data-en="Fixed price · 3–5 weeks">Cena stała · 3–5 tygodni</p>
-              <h3 id="pkg1" class="mt-2 text-2xl font-semibold tracking-tight text-ink" data-en="Website / Landing page">Strona firmowa / Landing page</h3>
-              <p class="mt-2 text-[15px] text-stone-600" data-en="For companies and experts who need a fast, findable website that converts.">Dla firm i ekspertów, którzy potrzebują szybkiej, widocznej w Google strony, która konwertuje.</p>
-              <p class="mt-6 flex items-baseline gap-2">
-                <span class="text-[15px] text-stone-500" data-en="from">od</span>
-                <span class="text-5xl font-semibold tracking-tight text-ink" data-en="€1,600">6 900 zł</span>
-                <span class="text-[14px] text-stone-500" data-en="net">netto</span>
-              </p>
-            </header>
-            <div class="mt-8 space-y-6 border-t border-stone-100 pt-7 text-[14.5px] leading-relaxed">
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="Strategy & UX">Strategia i UX</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="Discovery workshop (60–90 min) and written project brief">Warsztat discovery (60–90 min) i pisemny brief projektu</li>
-                  <li class="ck" data-en="UX audit of your current site + analysis of 3 competitors">Audyt UX obecnej strony + analiza 3 konkurentów</li>
-                  <li class="ck" data-en="Information architecture and wireframes of key pages">Architektura informacji i makiety (wireframes) kluczowych podstron</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400">Design</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="UI design in Figma for desktop and mobile, up to 2 revision rounds">Projekt UI w Figma (desktop + mobile), do 2 rund poprawek</li>
-                  <li class="ck" data-en="Mini design system: colours, typography, reusable components">Mini design system: kolory, typografia, komponenty wielokrotnego użytku</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400">Development</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="Up to 6 pages built with Astro / Next.js + headless CMS for editing content">Do 6 podstron w Astro / Next.js + headless CMS do samodzielnej edycji treści</li>
-                  <li class="ck" data-en="Responsiveness tests on iOS, Android, Chrome, Safari, Firefox and Edge">Testy responsywności: iOS, Android, Chrome, Safari, Firefox, Edge</li>
-                  <li class="ck" data-en="Accessibility to WCAG 2.1 AA (contrast, keyboard, screen readers)">Dostępność zgodna z WCAG 2.1 AA (kontrast, klawiatura, czytniki ekranu)</li>
-                  <li class="ck" data-en="Contact form with spam protection and e-mail notifications">Formularz kontaktowy z ochroną antyspamową i powiadomieniami e-mail</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="SEO & performance">SEO i wydajność</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="Core Web Vitals optimisation: LCP < 2.5 s, INP < 200 ms, CLS < 0.1">Optymalizacja Core Web Vitals: LCP &lt; 2,5 s, INP &lt; 200 ms, CLS &lt; 0,1</li>
-                  <li class="ck" data-en="Technical SEO: meta tags, sitemap.xml, robots.txt, JSON-LD structured data">SEO techniczne: meta tagi, sitemap.xml, robots.txt, dane strukturalne JSON-LD</li>
-                  <li class="ck" data-en="Google Search Console setup and GDPR-compliant, cookie-less analytics">Konfiguracja Google Search Console i analityki zgodnej z RODO (bez cookies)</li>
-                  <li class="ck" data-en="301 redirects from old URLs so you don't lose rankings">Przekierowania 301 ze starych adresów — bez utraty pozycji w Google</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="Deployment">Wdrożenie</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="Domain, DNS and SSL certificate configuration (HTTPS, HSTS)">Konfiguracja domeny, DNS i certyfikatu SSL (HTTPS, HSTS)</li>
-                  <li class="ck" data-en="Hosting on Vercel / Netlify / Cloudflare + CI/CD with automatic deploys">Hosting na Vercel / Netlify / Cloudflare + CI/CD z automatycznym wdrażaniem kodu</li>
-                  <li class="ck" data-en="Business e-mail setup on your domain (SPF, DKIM, DMARC)">Konfiguracja poczty firmowej w domenie (SPF, DKIM, DMARC)</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="After launch">Po wdrożeniu</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="30-day warranty: bugs fixed free of charge, 24h response to critical issues">30 dni gwarancji: bezpłatne poprawki błędów, reakcja na błąd krytyczny do 24h</li>
-                  <li class="ck" data-en="CMS training (live + recorded video) and a short user guide">Szkolenie z obsługi CMS (na żywo + nagranie wideo) i instrukcja</li>
-                  <li class="ck" data-en="Source code in your repository + full transfer of copyright">Kod źródłowy w Twoim repozytorium + przeniesienie pełnych praw autorskich</li>
-                </ul>
-              </div>
-              <div class="rounded-xl bg-stone-50 p-4 ring-1 ring-stone-200">
-                <h4 class="text-[13px] font-medium text-ink" data-en="Not included (quoted separately)">Nie obejmuje (wyceniane osobno)</h4>
-                <ul class="mt-2 space-y-1 text-[13.5px]">
-                  <li class="nx" data-en="Copywriting and photography, extra pages (from €140 / page)">Copywriting i sesja zdjęciowa, dodatkowe podstrony (od 590 zł / szt.)</li>
-                  <li class="nx" data-en="Domain fee and paid licences (fonts, stock photos, plugins)">Opłata za domenę i płatne licencje (fonty, zdjęcia stock, wtyczki)</li>
-                </ul>
-              </div>
-            </div>
-            <a href="#kontakt" data-package="website" class="pkg-cta mt-8 inline-flex justify-center rounded-full border border-stone-300 px-6 py-3 text-[14.5px] font-medium text-ink transition hover:border-ink" data-en="Ask about a website">Zapytaj o stronę</a>
+        <!-- Package headers -->
+        <div class="mt-12 grid border-t border-ink md:grid-cols-3">
+          <article class="border-b border-rule py-7 md:border-b-0 md:pr-8" aria-labelledby="p1">
+            <p class="mb-1 hidden h-5 md:block" aria-hidden="true"></p>
+            <h3 id="p1" class="text-[20px] font-medium">Landing page</h3>
+            <p class="mt-1 min-h-[3rem] text-[15px] text-muted" data-en="One page for a product, service, event or campaign.">Jedna strona pod produkt, usługę, wydarzenie lub kampanię.</p>
+            <p class="mt-5 text-[40px] font-medium leading-none tracking-[-0.03em]" data-en="€900">3 900 zł</p>
+            <p class="mt-2 font-mono text-[12.5px] text-muted" data-en="net · 2–3 weeks · 14-day warranty">netto · 2–3 tygodnie · gwarancja 14 dni</p>
+            <a href="#wycena" data-package="landing" class="pkg-cta mt-6 inline-block rounded-[3px] border border-ink px-5 py-2.5 text-[15px] transition-colors hover:bg-ink hover:text-paper" data-en="Order a landing page">Zamów landing page</a>
           </article>
-
-          <!-- ===== Package 2: Web app / MVP (featured) ===== -->
-          <article class="dark-card reveal relative flex flex-col rounded-3xl bg-ink p-7 text-stone-300 shadow-lift sm:p-9" aria-labelledby="pkg2">
-            <span class="absolute right-7 top-7 rounded-full bg-ivory px-3 py-1 font-mono text-[11px] font-medium text-ink sm:right-9 sm:top-9" data-en="Most popular">Najczęściej wybierany</span>
-            <header>
-              <p class="font-mono text-[11.5px] uppercase tracking-wider text-stone-500" data-en="Fixed price per milestone · 8–14 weeks">Cena stała per etap · 8–14 tygodni</p>
-              <h3 id="pkg2" class="mt-2 text-2xl font-semibold tracking-tight text-ivory" data-en="Web app / MVP">Aplikacja webowa / MVP</h3>
-              <p class="mt-2 max-w-md text-[15px] text-stone-400" data-en="For startups and companies launching a product, client portal or internal system.">Dla startupów i firm, które uruchamiają produkt, panel klienta lub system wewnętrzny.</p>
-              <p class="mt-6 flex items-baseline gap-2">
-                <span class="text-[15px] text-stone-500" data-en="from">od</span>
-                <span class="text-5xl font-semibold tracking-tight text-ivory" data-en="€6,500">28 000 zł</span>
-                <span class="text-[14px] text-stone-500" data-en="net">netto</span>
-              </p>
-            </header>
-            <div class="mt-8 space-y-6 border-t border-stone-800 pt-7 text-[14.5px] leading-relaxed">
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500">Discovery</h4>
-                <ul class="mt-3 space-y-2.5">
-                  <li class="ck" data-en="Workshops, process mapping and user stories">Warsztaty, mapa procesów i user stories</li>
-                  <li class="ck" data-en="Technical specification, per-module estimate and release plan">Specyfikacja techniczna, wycena per moduł i plan release'ów</li>
-                  <li class="ck" data-en="Architecture design (C4 diagrams), data model and stack selection">Projekt architektury (diagramy C4), model danych i dobór stacku</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500" data-en="UX / UI">UX / UI</h4>
-                <ul class="mt-3 space-y-2.5">
-                  <li class="ck" data-en="Clickable Figma prototype tested with 3–5 real users">Klikalny prototyp w Figma przetestowany z 3–5 użytkownikami</li>
-                  <li class="ck" data-en="Responsive UI built on a reusable component library">Responsywny interfejs z biblioteką komponentów</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500">Development</h4>
-                <ul class="mt-3 space-y-2.5">
-                  <li class="ck" data-en="Spring Boot (Java 21) backend with REST/GraphQL API documented in OpenAPI">Backend Spring Boot (Java 21), API REST/GraphQL z dokumentacją OpenAPI</li>
-                  <li class="ck" data-en="React / Next.js + TypeScript frontend">Frontend React / Next.js + TypeScript</li>
-                  <li class="ck" data-en="Authentication and roles (OAuth2 / OIDC, 2FA) + admin panel">Uwierzytelnianie i role (OAuth2 / OIDC, 2FA) + panel administracyjny</li>
-                  <li class="ck" data-en="Integrations: payments (Stripe / Przelewy24), e-mail, third-party APIs">Integracje: płatności (Stripe / Przelewy24), e-mail, zewnętrzne API</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500" data-en="Quality & security">Jakość i bezpieczeństwo</h4>
-                <ul class="mt-3 space-y-2.5">
-                  <li class="ck" data-en="Unit + integration tests (≥ 80% business-logic coverage), E2E tests of key flows">Testy jednostkowe i integracyjne (≥ 80% pokrycia logiki biznesowej), testy E2E kluczowych ścieżek</li>
-                  <li class="ck" data-en="Security review against OWASP Top 10, automated database backups">Przegląd bezpieczeństwa wg OWASP Top 10, automatyczne backupy bazy</li>
-                  <li class="ck" data-en="Load testing and query optimisation before go-live">Testy obciążeniowe i optymalizacja zapytań przed startem</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500" data-en="Deployment">Wdrożenie</h4>
-                <ul class="mt-3 space-y-2.5">
-                  <li class="ck" data-en="Infrastructure as code (Docker, Terraform), staging + production environments">Infrastruktura jako kod (Docker, Terraform), środowiska staging + produkcja</li>
-                  <li class="ck" data-en="CI/CD pipeline, error tracking (Sentry), logs and uptime alerts">Pipeline CI/CD, monitoring błędów (Sentry), logi i alerty dostępności</li>
-                  <li class="ck" data-en="Domain, SSL and transactional e-mail configuration">Konfiguracja domeny, SSL i poczty transakcyjnej</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500" data-en="Process & after launch">Proces i po wdrożeniu</h4>
-                <ul class="mt-3 space-y-2.5">
-                  <li class="ck" data-en="Demo every 2 weeks, repository and task board access from day one">Demo co 2 tygodnie, dostęp do repozytorium i tablicy zadań od pierwszego dnia</li>
-                  <li class="ck" data-en="60-day warranty and post-launch support (24h response to critical bugs)">60 dni gwarancji i wsparcia powdrożeniowego (reakcja na błąd krytyczny do 24h)</li>
-                  <li class="ck" data-en="Technical documentation, ADRs and a knowledge-transfer session">Dokumentacja techniczna, ADR i sesja przekazania wiedzy</li>
-                </ul>
-              </div>
-              <div class="rounded-xl bg-stone-900 p-4 ring-1 ring-stone-800">
-                <h4 class="text-[13px] font-medium text-ivory" data-en="Not included (quoted separately)">Nie obejmuje (wyceniane osobno)</h4>
-                <ul class="mt-2 space-y-1 text-[13.5px]">
-                  <li class="nx !text-stone-500" data-en="Cloud and third-party service costs (billed directly to you)">Koszty chmury i usług zewnętrznych (płacisz bezpośrednio dostawcy)</li>
-                  <li class="nx !text-stone-500" data-en="Native mobile apps (iOS / Android)">Natywne aplikacje mobilne (iOS / Android)</li>
-                </ul>
-              </div>
-            </div>
-            <a href="#kontakt" data-package="app" class="pkg-cta mt-8 inline-flex justify-center rounded-full bg-ivory px-6 py-3 text-[14.5px] font-medium text-ink transition hover:bg-white" data-en="Discuss your product">Porozmawiajmy o produkcie</a>
+          <article class="border-b border-rule py-7 md:border-b-0 md:border-l md:px-8" aria-labelledby="p2">
+            <p class="mb-1 text-[13px] text-accent md:h-5" data-en="Chosen most often">Wybierana najczęściej</p>
+            <h3 id="p2" class="text-[20px] font-medium" data-en="Company website">Strona firmowa</h3>
+            <p class="mt-1 min-h-[3rem] text-[15px] text-muted" data-en="Up to 6 pages with a CMS, so you can edit content yourself.">Do 6 podstron z CMS-em, w którym sam zmienisz treści.</p>
+            <p class="mt-5 text-[40px] font-medium leading-none tracking-[-0.03em]" data-en="€1,600">6 900 zł</p>
+            <p class="mt-2 font-mono text-[12.5px] text-muted" data-en="net · 3–5 weeks · 30-day warranty">netto · 3–5 tygodni · gwarancja 30 dni</p>
+            <a href="#wycena" data-package="website" class="pkg-cta mt-6 inline-block rounded-[3px] bg-ink px-5 py-2.5 text-[15px] text-paper transition-colors hover:bg-accent" data-en="Order a website">Zamów stronę</a>
           </article>
-
-          <!-- ===== Package 3: T&M ===== -->
-          <article class="reveal flex flex-col rounded-3xl border border-stone-200 bg-white p-7 shadow-soft sm:p-9" aria-labelledby="pkg3">
-            <header>
-              <p class="font-mono text-[11.5px] uppercase tracking-wider text-stone-400" data-en="Flexible · min. 20 h / month">Elastycznie · min. 20 h / mies.</p>
-              <h3 id="pkg3" class="mt-2 text-2xl font-semibold tracking-tight text-ink">Time &amp; Materials</h3>
-              <p class="mt-2 text-[15px] text-stone-600" data-en="For ongoing product development, team augmentation and work with an evolving scope.">Do ciągłego rozwoju produktu, wzmocnienia zespołu i prac o zmiennym zakresie.</p>
-              <p class="mt-6 flex items-baseline gap-2">
-                <span class="text-5xl font-semibold tracking-tight text-ink" data-en="€45">190 zł</span>
-                <span class="text-[14px] text-stone-500" data-en="/ hour net">/ godz. netto</span>
-              </p>
-            </header>
-            <div class="mt-8 space-y-6 border-t border-stone-100 pt-7 text-[14.5px] leading-relaxed">
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="Scope">Zakres prac</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="New features in existing apps (Java / Spring Boot, React, Next.js)">Nowe funkcje w istniejących aplikacjach (Java / Spring Boot, React, Next.js)</li>
-                  <li class="ck" data-en="Code review, refactoring and paying down technical debt">Code review, refaktoryzacja i spłata długu technologicznego</li>
-                  <li class="ck" data-en="Bug fixing, dependency and security updates">Naprawa błędów, aktualizacje zależności i łatki bezpieczeństwa</li>
-                  <li class="ck" data-en="Performance and Core Web Vitals optimisation">Optymalizacja wydajności i Core Web Vitals</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="Transparency">Przejrzystość</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="Weekly priorities agreed with you; estimate before each larger task">Priorytety ustalane co tydzień; estymacja przed każdym większym zadaniem</li>
-                  <li class="ck" data-en="Monthly invoice with a detailed time report (task, date, hours)">Faktura miesięczna ze szczegółowym raportem czasu (zadanie, data, godziny)</li>
-                  <li class="ck" data-en="Joins your team rituals: daily, planning, Slack / Teams">Udział w rytuałach zespołu: daily, planning, Slack / Teams</li>
-                  <li class="ck" data-en="Response time: within 1 business day">Czas reakcji: do 1 dnia roboczego</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="Terms">Warunki</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="No long-term commitment, 14-day notice period">Brak długoterminowego zobowiązania, 14 dni wypowiedzenia</li>
-                  <li class="ck" data-en="Prepaid hour packs: 40 h → −5%, 80 h → −10%">Pakiety prepaid: 40 h → −5%, 80 h → −10%</li>
-                  <li class="ck" data-en="Copyright transfer for all delivered code">Przeniesienie praw autorskich do całego dostarczonego kodu</li>
-                </ul>
-              </div>
-            </div>
-            <a href="#kontakt" data-package="tm" class="pkg-cta mt-auto inline-flex justify-center rounded-full border border-stone-300 px-6 py-3 text-[14.5px] font-medium text-ink transition hover:border-ink lg:mt-8" data-en="Book hours">Zarezerwuj godziny</a>
-          </article>
-
-          <!-- ===== Package 4: Tech Lead ===== -->
-          <article class="reveal flex flex-col rounded-3xl border border-stone-200 bg-white p-7 shadow-soft sm:p-9" aria-labelledby="pkg4">
-            <header>
-              <p class="font-mono text-[11.5px] uppercase tracking-wider text-stone-400" data-en="Monthly retainer · up to 6 days / month">Abonament miesięczny · do 6 dni / mies.</p>
-              <h3 id="pkg4" class="mt-2 text-2xl font-semibold tracking-tight text-ink">Tech Lead / Fractional CTO</h3>
-              <p class="mt-2 text-[15px] text-stone-600" data-en="For companies with a development team that needs senior technical leadership without a full-time hire.">Dla firm z zespołem developerskim, który potrzebuje seniorskiego przywództwa technicznego bez etatu.</p>
-              <p class="mt-6 flex items-baseline gap-2">
-                <span class="text-5xl font-semibold tracking-tight text-ink" data-en="€2,100">8 900 zł</span>
-                <span class="text-[14px] text-stone-500" data-en="/ month net">/ mies. netto</span>
-              </p>
-            </header>
-            <div class="mt-8 space-y-6 border-t border-stone-100 pt-7 text-[14.5px] leading-relaxed">
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="Architecture & quality">Architektura i jakość</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="Kick-off technical audit: code, architecture, security, cloud costs (written report + roadmap)">Audyt techniczny na start: kod, architektura, bezpieczeństwo, koszty chmury (raport + roadmapa)</li>
-                  <li class="ck" data-en="Architecture decisions documented as ADRs">Decyzje architektoniczne dokumentowane w ADR</li>
-                  <li class="ck" data-en="Code review standards, Definition of Done, CI quality gates (SonarQube, tests)">Standardy code review, Definition of Done, bramki jakości w CI (SonarQube, testy)</li>
-                  <li class="ck" data-en="Observability setup: metrics, tracing, alerting">Konfiguracja observability: metryki, tracing, alerty</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="Team & business">Zespół i biznes</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="Hiring support: technical tasks, interviews, candidate assessment">Wsparcie rekrutacji: zadania techniczne, rozmowy, ocena kandydatów</li>
-                  <li class="ck" data-en="1:1 mentoring for developers every two weeks">Mentoring developerów 1:1 co dwa tygodnie</li>
-                  <li class="ck" data-en="Estimates and roadmap planning together with stakeholders">Estymacje i planowanie roadmapy razem z biznesem</li>
-                  <li class="ck" data-en="Weekly written status report for management">Cotygodniowy pisemny raport statusowy dla zarządu</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-mono text-[11px] uppercase tracking-[0.14em] text-stone-400" data-en="Terms">Warunki</h4>
-                <ul class="mt-3 space-y-2.5 text-stone-700">
-                  <li class="ck" data-en="Available on Slack / Teams Mon–Fri, 9:00–17:00 CET">Dostępność na Slack / Teams pn–pt, 9:00–17:00</li>
-                  <li class="ck" data-en="Monthly contract, 30-day notice, NDA as standard">Umowa miesięczna, 30 dni wypowiedzenia, NDA w standardzie</li>
-                </ul>
-              </div>
-            </div>
-            <a href="#kontakt" data-package="lead" class="pkg-cta mt-auto inline-flex justify-center rounded-full border border-stone-300 px-6 py-3 text-[14.5px] font-medium text-ink transition hover:border-ink lg:mt-8" data-en="Talk about your team">Porozmawiajmy o zespole</a>
+          <article class="py-7 md:border-l md:pl-8" aria-labelledby="p3">
+            <p class="mb-1 hidden h-5 md:block" aria-hidden="true"></p>
+            <h3 id="p3" class="text-[20px] font-medium" data-en="Web app / store">Aplikacja / sklep</h3>
+            <p class="mt-1 min-h-[3rem] text-[15px] text-muted" data-en="Client portal, booking system, online store or a product's first version.">Panel klienta, system rezerwacji, sklep lub pierwsza wersja produktu.</p>
+            <p class="mt-5 text-[40px] font-medium leading-none tracking-[-0.03em]"><span class="mr-1.5 text-[18px] font-normal text-muted" data-en="from">od</span><span data-en="€6,500">28 000 zł</span></p>
+            <p class="mt-2 font-mono text-[12.5px] text-muted" data-en="net · 8–14 weeks · 60-day warranty">netto · 8–14 tygodni · gwarancja 60 dni</p>
+            <a href="#wycena" data-package="app" class="pkg-cta mt-6 inline-block rounded-[3px] border border-ink px-5 py-2.5 text-[15px] transition-colors hover:bg-ink hover:text-paper" data-en="Discuss an application">Porozmawiajmy o aplikacji</a>
           </article>
         </div>
 
-        <!-- Always included -->
-        <div class="reveal mt-10 rounded-3xl border border-stone-200 bg-white p-7 shadow-soft sm:p-9">
-          <h3 class="text-lg font-semibold tracking-tight text-ink" data-en="Included in every engagement">W każdej współpracy, bez dopłat</h3>
-          <ul class="mt-6 grid gap-x-8 gap-y-3 text-[14.5px] text-stone-700 sm:grid-cols-2 lg:grid-cols-3">
-            <li class="ck" data-en="B2B contract and VAT invoice">Umowa B2B i faktura VAT</li>
-            <li class="ck" data-en="NDA before we discuss details">NDA przed omówieniem szczegółów</li>
-            <li class="ck" data-en="Code in your repository from day one">Kod w Twoim repozytorium od pierwszego dnia</li>
-            <li class="ck" data-en="Full transfer of copyright">Pełne przeniesienie praw autorskich</li>
-            <li class="ck" data-en="Milestone payments: 30 / 40 / 30%">Płatność etapami: 30 / 40 / 30%</li>
-            <li class="ck" data-en="No hidden costs — changes quoted before work">Brak ukrytych kosztów — zmiany wyceniane przed realizacją</li>
-          </ul>
+        <!-- Comparison table -->
+        <div class="mt-10 overflow-x-auto">
+          <table class="cmp w-full min-w-[620px] border-collapse text-[14.5px]">
+            <caption class="sr-only" data-en="What each package includes">Co zawiera każdy pakiet</caption>
+            <thead>
+              <tr class="text-left text-[13px] text-muted">
+                <th scope="col" class="font-normal" data-en="Included in the price">W cenie</th>
+                <th scope="col" class="font-normal">Landing</th>
+                <th scope="col" class="font-normal" data-en="Website">Strona</th>
+                <th scope="col" class="font-normal" data-en="App / store">Aplikacja</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="grp"><td colspan="4" data-en="1. Strategy and UX">1. Strategia i UX</td></tr>
+              <tr><td data-en="Workshop and written brief">Warsztat i pisemny brief</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="UX audit of your current site">Audyt UX obecnej strony</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Competitor review">Analiza konkurencji</td><td data-en="1 site">1 strona</td><td data-en="3 sites">3 strony</td><td data-en="5 products">5 produktów</td></tr>
+              <tr><td data-en="Page structure and wireframes">Struktura i makiety</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Clickable prototype tested with users">Klikalny prototyp testowany z użytkownikami</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+              <tr class="grp"><td colspan="4" data-en="2. Design">2. Projekt graficzny</td></tr>
+              <tr><td data-en="Desktop and mobile design in Figma">Projekt w Figmie: komputer i telefon</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Rounds of changes">Rundy poprawek</td><td>1</td><td>2</td><td>3</td></tr>
+              <tr><td data-en="Style guide: colours, type, components">Spisane kolory, typografia, komponenty</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+
+              <tr class="grp"><td colspan="4" data-en="3. Build">3. Wykonanie</td></tr>
+              <tr><td data-en="Number of pages / screens">Liczba podstron / ekranów</td><td>1</td><td data-en="up to 6">do 6</td><td data-en="per spec">wg specyfikacji</td></tr>
+              <tr><td data-en="CMS to edit content yourself">CMS do samodzielnej edycji treści</td><td class="no">—</td><td class="yes">✓</td><td data-en="admin panel">panel admina</td></tr>
+              <tr><td data-en="Contact form with spam protection">Formularz kontaktowy z ochroną przed spamem</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="User accounts, roles, payments">Konta użytkowników, role, płatności</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Backend and API (Spring Boot, OpenAPI docs)">Backend i API (Spring Boot, dokumentacja OpenAPI)</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Responsive tests: iOS, Android, Chrome, Safari, Firefox, Edge">Testy responsywności: iOS, Android, Chrome, Safari, Firefox, Edge</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Accessibility (WCAG 2.1 AA)">Dostępność (WCAG 2.1 AA)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Automated tests and security review (OWASP)">Testy automatyczne i przegląd bezpieczeństwa (OWASP)</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+              <tr class="grp"><td colspan="4" data-en="4. Speed and SEO">4. Szybkość i SEO</td></tr>
+              <tr><td data-en="Core Web Vitals in the green (LCP < 2.5 s, INP < 200 ms, CLS < 0.1)">Core Web Vitals na zielono (LCP &lt; 2,5 s, INP &lt; 200 ms, CLS &lt; 0,1)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Meta tags, sitemap.xml, robots.txt, structured data">Meta tagi, sitemap.xml, robots.txt, dane strukturalne</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="301 redirects from old addresses">Przekierowania 301 ze starych adresów</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Google Search Console and cookie-free analytics">Google Search Console i analityka bez cookies</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+
+              <tr class="grp"><td colspan="4" data-en="5. Going live">5. Uruchomienie</td></tr>
+              <tr><td data-en="Domain, DNS and SSL certificate setup">Konfiguracja domeny, DNS i certyfikatu SSL</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Hosting with automatic deploys">Hosting z automatycznym wdrażaniem zmian</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="E-mail on your domain (SPF, DKIM, DMARC)">Poczta w Twojej domenie (SPF, DKIM, DMARC)</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Test version you can click through before launch">Wersja testowa do sprawdzenia przed startem</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Error and uptime monitoring">Monitoring błędów i dostępności</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+              <tr class="grp"><td colspan="4" data-en="6. After launch">6. Po uruchomieniu</td></tr>
+              <tr><td data-en="Warranty (free bug fixes)">Gwarancja (bezpłatne poprawki błędów)</td><td data-en="14 days">14 dni</td><td data-en="30 days">30 dni</td><td data-en="60 days">60 dni</td></tr>
+              <tr><td data-en="Response to a critical bug">Reakcja na błąd krytyczny</td><td>48 h</td><td>24 h</td><td>24 h</td></tr>
+              <tr><td data-en="Training (live + recording)">Szkolenie (na żywo + nagranie)</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td data-en="Documentation">Dokumentacja</td><td data-en="short">krótka</td><td data-en="user guide">instrukcja</td><td data-en="technical">techniczna</td></tr>
+              <tr><td data-en="Code in your repository + copyright transfer">Kod w Twoim repozytorium + przeniesienie praw autorskich</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            </tbody>
+          </table>
         </div>
 
-        <!-- FAQ -->
-        <div id="faq" class="reveal mx-auto mt-20 max-w-3xl">
-          <h3 class="text-center text-2xl font-semibold tracking-tight text-ink" data-en="Frequently asked questions">Najczęściej zadawane pytania</h3>
-          <div class="mt-8 divide-y divide-stone-200 border-y border-stone-200">
-            <details class="group py-5">
-              <summary class="flex cursor-pointer items-center justify-between gap-4 text-[15.5px] font-medium text-ink"><span data-en="Are prices net or gross?">Czy ceny są netto czy brutto?</span><span class="plus text-xl font-light text-stone-400 transition-transform">+</span></summary>
-              <p class="mt-3 text-[15px] leading-relaxed text-stone-600" data-en="All prices are net. 23% VAT is added for Polish clients; EU businesses outside Poland are invoiced under the reverse-charge mechanism.">Wszystkie ceny są netto. Do faktury doliczany jest 23% VAT; firmy z UE spoza Polski rozliczane są w mechanizmie odwrotnego obciążenia.</p>
-            </details>
-            <details class="group py-5">
-              <summary class="flex cursor-pointer items-center justify-between gap-4 text-[15.5px] font-medium text-ink"><span data-en="How does payment work?">Jak wygląda płatność za projekt?</span><span class="plus text-xl font-light text-stone-400 transition-transform">+</span></summary>
-              <p class="mt-3 text-[15px] leading-relaxed text-stone-600" data-en="Fixed-price projects are paid in milestones: 30% on signing, 40% after staging acceptance, 30% after production launch. T&M and Tech Lead are invoiced monthly.">Projekty o stałej cenie rozliczane są etapami: 30% po podpisaniu umowy, 40% po akceptacji wersji staging, 30% po wdrożeniu produkcyjnym. T&amp;M i Tech Lead — faktura miesięczna.</p>
-            </details>
-            <details class="group py-5">
-              <summary class="flex cursor-pointer items-center justify-between gap-4 text-[15.5px] font-medium text-ink"><span data-en="Who owns the code?">Kto jest właścicielem kodu?</span><span class="plus text-xl font-light text-stone-400 transition-transform">+</span></summary>
-              <p class="mt-3 text-[15px] leading-relaxed text-stone-600" data-en="You do. After the final invoice is paid I transfer full economic copyright, and the repository lives on your account from the very start.">Ty. Po opłaceniu faktury końcowej przenoszę pełne autorskie prawa majątkowe, a repozytorium od początku znajduje się na Twoim koncie.</p>
-            </details>
-            <details class="group py-5">
-              <summary class="flex cursor-pointer items-center justify-between gap-4 text-[15.5px] font-medium text-ink"><span data-en="What does the warranty cover?">Co obejmuje gwarancja?</span><span class="plus text-xl font-light text-stone-400 transition-transform">+</span></summary>
-              <p class="mt-3 text-[15px] leading-relaxed text-stone-600" data-en="Free fixes for any bug caused by my code: 30 days for websites, 60 days for applications. Critical issues get a response within 24 hours. After that, support continues under T&M or a monthly maintenance plan.">Bezpłatne usuwanie błędów wynikających z mojego kodu: 30 dni dla stron, 60 dni dla aplikacji. Na błąd krytyczny reaguję w ciągu 24 godzin. Później wsparcie kontynuujemy w modelu T&amp;M lub abonamentu utrzymaniowego.</p>
-            </details>
-            <details class="group py-5">
-              <summary class="flex cursor-pointer items-center justify-between gap-4 text-[15.5px] font-medium text-ink"><span data-en="Do I need a Spring Boot backend for a simple website?">Czy potrzebuję backendu w Spring Boot dla prostej strony?</span><span class="plus text-xl font-light text-stone-400 transition-transform">+</span></summary>
-              <p class="mt-3 text-[15px] leading-relaxed text-stone-600" data-en="Usually not. A company website or portfolio works best as a statically generated frontend on a CDN — faster, cheaper and safer. Spring Boot makes sense once you need user accounts, payments, a client portal or complex business logic.">Zwykle nie. Strona firmowa czy portfolio najlepiej działa jako statycznie generowany frontend na CDN — szybciej, taniej i bezpieczniej. Spring Boot ma sens, gdy potrzebujesz kont użytkowników, płatności, panelu klienta lub złożonej logiki biznesowej.</p>
-            </details>
+        <p class="mt-6 max-w-[80ch] text-[14px] text-muted"><span class="text-ink" data-en="Not included:">Nie obejmuje:</span> <span data-en="copywriting and photos (unless ordered as an add-on), domain and hosting fees above free plans, paid licences (fonts, stock photos), native mobile apps.">pisania tekstów i zdjęć (chyba że zamówisz je jako dodatek), opłat za domenę i hosting powyżej darmowych planów, płatnych licencji (fonty, zdjęcia stockowe), natywnych aplikacji mobilnych.</span></p>
+
+        <!-- Add-ons -->
+        <div class="mt-16 grid gap-10 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <h3 class="text-[20px] font-medium" data-en="Add-ons">Dodatki</h3>
+            <p class="mt-1 text-[15px] text-muted" data-en="Can be added to any package.">Do dołożenia do dowolnego pakietu.</p>
+          </div>
+          <dl class="border-t border-ink text-[15px] lg:col-span-8">
+            <div class="flex justify-between gap-6 border-b border-rule py-3"><dt data-en="Extra page">Dodatkowa podstrona</dt><dd class="shrink-0 font-mono text-[14px]" data-en="€140">590 zł</dd></div>
+            <div class="flex justify-between gap-6 border-b border-rule py-3"><dt data-en="Second language version">Druga wersja językowa</dt><dd class="shrink-0 font-mono text-[14px]" data-en="+30% of package">+30% pakietu</dd></div>
+            <div class="flex justify-between gap-6 border-b border-rule py-3"><dt data-en="SEO copywriting (per page)">Teksty pod SEO (za podstronę)</dt><dd class="shrink-0 font-mono text-[14px]" data-en="€80">350 zł</dd></div>
+            <div class="flex justify-between gap-6 border-b border-rule py-3"><dt data-en="Blog with categories and search">Blog z kategoriami i wyszukiwarką</dt><dd class="shrink-0 font-mono text-[14px]" data-en="€350">1 500 zł</dd></div>
+            <div class="flex justify-between gap-6 border-b border-rule py-3"><dt data-en="Online booking or payments on a website">Rezerwacje online lub płatności na stronie</dt><dd class="shrink-0 font-mono text-[14px]" data-en="from €450">od 1 900 zł</dd></div>
+            <div class="flex justify-between gap-6 border-b border-rule py-3">
+              <dt><span data-en="Technical care">Opieka techniczna</span><span class="block text-[13.5px] text-muted" data-en="updates, backups, monitoring, 2 h of changes a month">aktualizacje, kopie zapasowe, monitoring, 2 h zmian miesięcznie</span></dt>
+              <dd class="shrink-0 font-mono text-[14px]" data-en="€90 / mo">390 zł / mies.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Other engagement models -->
+        <div class="mt-16 grid gap-10 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <h3 class="text-[20px] font-medium" data-en="Already have a product?">Masz już produkt?</h3>
+            <p class="mt-1 text-[15px] text-muted" data-en="For companies that need ongoing development or someone to lead their developers.">Dla firm, które potrzebują stałego rozwoju aplikacji albo kogoś, kto poprowadzi ich programistów.</p>
+          </div>
+          <div class="grid gap-10 border-t border-ink pt-6 sm:grid-cols-2 lg:col-span-8">
+            <article>
+              <h4 class="text-[17px] font-medium">Time &amp; Materials</h4>
+              <p class="mt-1 text-[24px] tracking-[-0.02em]"><span data-en="€45">190 zł</span> <span class="text-[14px] text-muted" data-en="/ hour net · min. 20 h a month">/ godz. netto · min. 20 h mies.</span></p>
+              <ul class="dash mt-4 space-y-1.5 text-[15px] text-muted">
+                <li data-en="New features, fixes, updates in existing apps">Nowe funkcje, poprawki i aktualizacje w istniejących aplikacjach</li>
+                <li data-en="Code review, refactoring, performance work">Code review, refaktoryzacja, poprawa wydajności</li>
+                <li data-en="Priorities set weekly, estimate before larger tasks">Priorytety co tydzień, estymacja przed większymi zadaniami</li>
+                <li data-en="Monthly invoice with a report: task, date, hours">Faktura miesięczna z raportem: zadanie, data, godziny</li>
+                <li data-en="Reply within one business day">Odpowiedź w ciągu jednego dnia roboczego</li>
+                <li data-en="14 days' notice; prepaid 40 h −5%, 80 h −10%">14 dni wypowiedzenia; pakiety 40 h −5%, 80 h −10%</li>
+              </ul>
+              <a href="#wycena" data-package="tm" class="pkg-cta u mt-4 inline-block text-[15px]" data-en="Book hours →">Zarezerwuj godziny →</a>
+            </article>
+            <article>
+              <h4 class="text-[17px] font-medium">Tech lead</h4>
+              <p class="mt-1 text-[24px] tracking-[-0.02em]"><span data-en="€2,100">8 900 zł</span> <span class="text-[14px] text-muted" data-en="/ month net · up to 6 days">/ mies. netto · do 6 dni</span></p>
+              <ul class="dash mt-4 space-y-1.5 text-[15px] text-muted">
+                <li data-en="Audit at the start: code, architecture, security, cloud costs">Audyt na start: kod, architektura, bezpieczeństwo, koszty chmury</li>
+                <li data-en="Architecture decisions written down (ADR)">Decyzje architektoniczne zapisane w ADR</li>
+                <li data-en="Code review rules and quality checks in CI">Zasady code review i kontrola jakości w CI</li>
+                <li data-en="Hiring help and 1:1s with developers">Pomoc w rekrutacji i rozmowy 1:1 z programistami</li>
+                <li data-en="Roadmap and estimates with the business, weekly status">Plan rozwoju i estymacje z biznesem, status co tydzień</li>
+                <li data-en="Slack / Teams Mon–Fri 9–17, 30 days' notice, NDA">Slack / Teams pn–pt 9–17, 30 dni wypowiedzenia, NDA</li>
+              </ul>
+              <a href="#wycena" data-package="lead" class="pkg-cta u mt-4 inline-block text-[15px]" data-en="Talk about your team →">Porozmawiajmy o zespole →</a>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== CONTACT ===================== -->
-    <section id="kontakt" class="scroll-mt-20 py-24 sm:py-32" aria-labelledby="contact-title">
-      <div class="mx-auto grid max-w-6xl gap-14 px-5 sm:px-8 lg:grid-cols-[.85fr_1.15fr]">
-        <div class="reveal">
-          <p class="font-mono text-[12px] uppercase tracking-[0.16em] text-stone-400">05 — <span data-en="Contact">Kontakt</span></p>
-          <h2 id="contact-title" class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-[44px] sm:leading-[1.1]" data-en="Let's talk about your project.">Porozmawiajmy o Twoim projekcie.</h2>
-          <p class="mt-4 text-[16.5px] leading-relaxed text-stone-600" data-en="Tell me what you're building. I reply personally within 24 hours on business days — no sales team, no autoresponder.">Napisz, co budujesz. Odpowiadam osobiście w ciągu 24 godzin w dni robocze — bez działu sprzedaży i autorespondera.</p>
+    <!-- ===================== PROCESS ===================== -->
+    <section id="proces" class="scroll-mt-16 border-t border-rule" aria-labelledby="process-title">
+      <div class="mx-auto max-w-[1120px] px-5 py-16 sm:px-8 sm:py-24">
+        <h2 id="process-title" class="max-w-[24ch] text-[32px] font-medium leading-tight tracking-[-0.025em] sm:text-[40px]" data-en="How an order works">Jak wygląda zamówienie</h2>
+        <ol class="mt-12 grid border-t border-ink sm:grid-cols-2 lg:grid-cols-5">
+          <li class="border-b border-rule py-6 lg:border-b-0 lg:pr-6">
+            <p class="font-mono text-[13px] text-muted">01 · <span data-en="day 1">dzień 1</span></p>
+            <h3 class="mt-2 font-medium" data-en="Free call">Bezpłatna rozmowa</h3>
+            <p class="mt-1 text-[15px] text-muted" data-en="30 minutes. Goals, deadline, budget, what you already have.">30 minut. Cel, termin, budżet, co już masz.</p>
+          </li>
+          <li class="border-b border-rule py-6 sm:border-l sm:pl-6 lg:border-b-0 lg:pr-6">
+            <p class="font-mono text-[13px] text-muted">02 · <span data-en="within 3 days">do 3 dni</span></p>
+            <h3 class="mt-2 font-medium" data-en="Written proposal">Pisemna oferta</h3>
+            <p class="mt-1 text-[15px] text-muted" data-en="Scope, schedule and fixed price. You pay 30% after signing.">Zakres, harmonogram i stała cena. Po podpisaniu płacisz 30%.</p>
+          </li>
+          <li class="border-b border-rule py-6 lg:border-b-0 lg:border-l lg:px-6">
+            <p class="font-mono text-[13px] text-muted">03 · <span data-en="week 1–2">tydzień 1–2</span></p>
+            <h3 class="mt-2 font-medium" data-en="Design">Projekt</h3>
+            <p class="mt-1 text-[15px] text-muted" data-en="Wireframes and visual design. Nothing is coded until you approve it.">Makiety i grafika. Nic nie jest kodowane, zanim tego nie zaakceptujesz.</p>
+          </li>
+          <li class="border-b border-rule py-6 sm:border-l sm:pl-6 lg:border-b-0 lg:pr-6">
+            <p class="font-mono text-[13px] text-muted">04 · <span data-en="week 2–4">tydzień 2–4</span></p>
+            <h3 class="mt-2 font-medium" data-en="Build and testing">Wykonanie i testy</h3>
+            <p class="mt-1 text-[15px] text-muted" data-en="A test version you can click through. 40% after you accept it.">Wersja testowa, którą możesz przeklikać. Po akceptacji 40%.</p>
+          </li>
+          <li class="py-6 lg:border-l lg:pl-6">
+            <p class="font-mono text-[13px] text-muted">05 · <span data-en="launch">start</span></p>
+            <h3 class="mt-2 font-medium" data-en="Launch and warranty">Uruchomienie i gwarancja</h3>
+            <p class="mt-1 text-[15px] text-muted" data-en="Going live, training, handover. Last 30%, then the warranty starts.">Publikacja, szkolenie, przekazanie. Ostatnie 30%, potem biegnie gwarancja.</p>
+          </li>
+        </ol>
+        <p class="mt-6 text-[14px] text-muted" data-en="Timeline shown for a company website. Landing pages are faster, applications are planned in two-week stages.">Terminy dla strony firmowej. Landing page jest szybszy, aplikacje planujemy w dwutygodniowych etapach.</p>
+      </div>
+    </section>
 
-          <dl class="mt-10 space-y-5 text-[15px]">
-            <div class="flex gap-4">
-              <dt class="w-24 shrink-0 font-mono text-[12px] uppercase tracking-wider text-stone-400 pt-0.5">E-mail</dt>
-              <dd><a href="mailto:kontakt@mateusz-kielbasa.dev" class="font-medium text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink">kontakt@mateusz-kielbasa.dev</a></dd>
-            </div>
-            <div class="flex gap-4">
-              <dt class="w-24 shrink-0 font-mono text-[12px] uppercase tracking-wider text-stone-400 pt-0.5" data-en="Profiles">Profile</dt>
-              <dd class="flex flex-wrap gap-x-4 gap-y-1">
-                <a href="https://www.linkedin.com/in/mateusz-kielbasa" rel="me noopener" target="_blank" class="font-medium text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink">LinkedIn</a>
-                <a href="https://github.com/kielbek" rel="me noopener" target="_blank" class="font-medium text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink">GitHub</a>
-              </dd>
-            </div>
-            <div class="flex gap-4">
-              <dt class="w-24 shrink-0 font-mono text-[12px] uppercase tracking-wider text-stone-400 pt-0.5" data-en="Location">Lokalizacja</dt>
-              <dd class="text-stone-700" data-en="Kraków, Poland · remote (CET)">Kraków, Polska · zdalnie (CET)</dd>
-            </div>
-            <div class="flex gap-4">
-              <dt class="w-24 shrink-0 font-mono text-[12px] uppercase tracking-wider text-stone-400 pt-0.5" data-en="Company">Firma</dt>
-              <dd class="text-stone-700" data-en="Sole proprietorship, VAT ID: PL0000000000">JDG, NIP: 0000000000</dd>
-            </div>
-          </dl>
+    <!-- ===================== WORK ===================== -->
+    <section id="realizacje" class="scroll-mt-16 border-t border-rule bg-card" aria-labelledby="work-title">
+      <div class="mx-auto max-w-[1120px] px-5 py-16 sm:px-8 sm:py-24">
+        <div class="grid gap-4 md:grid-cols-12">
+          <h2 id="work-title" class="text-[32px] font-medium leading-tight tracking-[-0.025em] sm:text-[40px] md:col-span-6" data-en="Recent work and results">Ostatnie realizacje i wyniki</h2>
+          <p class="text-[16px] text-muted md:col-span-5 md:col-start-8 md:pt-2" data-en="Click a row to see what the client needed, what was built and what changed after launch.">Kliknij wiersz, żeby zobaczyć, czego potrzebował klient, co powstało i co zmieniło się po starcie.</p>
+        </div>
 
-          <div class="mt-10 rounded-2xl border border-stone-200 bg-white p-6 shadow-soft">
-            <p class="text-[13px] font-medium text-ink" data-en="What happens next">Co dalej?</p>
-            <ol class="mt-4 space-y-3 text-[14.5px] text-stone-600">
-              <li class="flex gap-3"><span class="font-mono text-[12px] text-stone-400">1.</span><span data-en="I reply within 24h with questions or a call slot.">Odpowiadam w 24h z pytaniami lub terminem rozmowy.</span></li>
-              <li class="flex gap-3"><span class="font-mono text-[12px] text-stone-400">2.</span><span data-en="Free 30-min call — we define the goal and constraints.">Bezpłatna rozmowa 30 min — ustalamy cel i ograniczenia.</span></li>
-              <li class="flex gap-3"><span class="font-mono text-[12px] text-stone-400">3.</span><span data-en="Written proposal with scope, timeline and fixed price within 3 days.">Pisemna oferta z zakresem, harmonogramem i ceną w 3 dni.</span></li>
-            </ol>
+        <div role="tablist" aria-label="Filtruj realizacje" data-en-aria-label="Filter work" class="mt-10 flex flex-wrap gap-x-5 gap-y-1 text-[14px]">
+          <button role="tab" aria-selected="true" class="filter-btn text-ink underline underline-offset-4" data-filter="all"><span data-en="All">Wszystkie</span> <span class="font-mono text-[12px] text-muted">4</span></button>
+          <button role="tab" aria-selected="false" class="filter-btn text-muted hover:text-ink" data-filter="web"><span data-en="Websites & stores">Strony i sklepy</span> <span class="font-mono text-[12px]">2</span></button>
+          <button role="tab" aria-selected="false" class="filter-btn text-muted hover:text-ink" data-filter="app"><span data-en="Applications">Aplikacje</span> <span class="font-mono text-[12px]">2</span></button>
+        </div>
+
+        <ul class="mt-5 border-t border-ink">
+          <li class="proj border-b border-rule" data-cat="web" data-open="false">
+            <button type="button" class="proj-toggle grid w-full grid-cols-[1fr_20px] gap-4 py-5 text-left sm:grid-cols-[72px_1fr_200px_20px]" aria-expanded="false">
+              <span class="hidden pt-0.5 font-mono text-[13px] text-muted sm:block">2025</span>
+              <span><span class="block font-medium">Atelier Commerce</span><span class="mt-0.5 block text-muted" data-en="New online store for a furniture brand selling in six EU countries.">Nowy sklep internetowy marki meblowej sprzedającej w sześciu krajach UE.</span></span>
+              <span class="hidden pt-0.5 text-[14px] sm:block" data-en="conversion +27%">konwersja +27%</span>
+              <span class="sign pt-0.5 text-right text-muted transition-transform" aria-hidden="true">+</span>
+            </button>
+            <div class="proj-details"><div>
+              <dl class="grid max-w-[64ch] gap-4 pb-7 text-[15px] sm:ml-[88px]">
+                <div><dt class="text-muted" data-en="Before">Przed</dt><dd data-en="Old theme loading in 3.8 s on phones; checkout broke during sales campaigns.">Stary szablon ładujący się 3,8 s na telefonie; koszyk psuł się podczas kampanii.</dd></div>
+                <div><dt class="text-muted" data-en="What was built">Co powstało</dt><dd data-en="Fast product pages, a price and stock service with cache, and a shorter two-step checkout.">Szybkie strony produktów, usługa cen i stanów z cache oraz krótszy, dwukrokowy koszyk.</dd></div>
+                <div><dt class="text-muted" data-en="After 6 months">Po pół roku</dt><dd data-en="Load time 3.8 s → 1.2 s, conversion +27%, abandoned carts −41%.">Ładowanie 3,8 s → 1,2 s, konwersja +27%, porzucone koszyki −41%.</dd></div>
+                <div><dt class="text-muted">Stack</dt><dd class="font-mono text-[13px]">Next.js · Spring Boot · Redis · Stripe · Vercel</dd></div>
+              </dl>
+            </div></div>
+          </li>
+          <li class="proj border-b border-rule" data-cat="web" data-open="false">
+            <button type="button" class="proj-toggle grid w-full grid-cols-[1fr_20px] gap-4 py-5 text-left sm:grid-cols-[72px_1fr_200px_20px]" aria-expanded="false">
+              <span class="hidden pt-0.5 font-mono text-[13px] text-muted sm:block">2025</span>
+              <span><span class="block font-medium" data-en="Law firm website">Strona kancelarii prawnej</span><span class="mt-0.5 block text-muted" data-en="Company website with a blog for a 12-person law firm in Kraków.">Strona firmowa z blogiem dla 12-osobowej kancelarii z Krakowa.</span></span>
+              <span class="hidden pt-0.5 text-[14px] sm:block" data-en="enquiries ×2.4">zapytania ×2,4</span>
+              <span class="sign pt-0.5 text-right text-muted transition-transform" aria-hidden="true">+</span>
+            </button>
+            <div class="proj-details"><div>
+              <dl class="grid max-w-[64ch] gap-4 pb-7 text-[15px] sm:ml-[88px]">
+                <div><dt class="text-muted" data-en="Before">Przed</dt><dd data-en="A 2015 site, not readable on phones, invisible in Google for local searches.">Strona z 2015 roku, nieczytelna na telefonie, niewidoczna w Google na lokalne frazy.</dd></div>
+                <div><dt class="text-muted" data-en="What was built">Co powstało</dt><dd data-en="6 pages plus a blog in a CMS, practice-area pages written for search, redirects from old addresses.">6 podstron i blog w CMS-ie, podstrony specjalizacji pisane pod wyszukiwarkę, przekierowania ze starych adresów.</dd></div>
+                <div><dt class="text-muted" data-en="After 4 months">Po 4 miesiącach</dt><dd data-en="Form enquiries ×2.4, top 3 in Google for 9 local phrases, Lighthouse 100/100 SEO.">Zapytania z formularza ×2,4, top 3 w Google na 9 lokalnych fraz, Lighthouse SEO 100/100.</dd></div>
+                <div><dt class="text-muted">Stack</dt><dd class="font-mono text-[13px]">Astro · Sanity CMS · Cloudflare Pages</dd></div>
+              </dl>
+            </div></div>
+          </li>
+          <li class="proj border-b border-rule" data-cat="app" data-open="false">
+            <button type="button" class="proj-toggle grid w-full grid-cols-[1fr_20px] gap-4 py-5 text-left sm:grid-cols-[72px_1fr_200px_20px]" aria-expanded="false">
+              <span class="hidden pt-0.5 font-mono text-[13px] text-muted sm:block">2024</span>
+              <span><span class="block font-medium">ClinicDesk</span><span class="mt-0.5 block text-muted" data-en="Online booking and reminders for a network of 40 private clinics.">Rezerwacje online i przypomnienia dla sieci 40 prywatnych przychodni.</span></span>
+              <span class="hidden pt-0.5 text-[14px] sm:block" data-en="no-shows −35%">nieobecności −35%</span>
+              <span class="sign pt-0.5 text-right text-muted transition-transform" aria-hidden="true">+</span>
+            </button>
+            <div class="proj-details"><div>
+              <dl class="grid max-w-[64ch] gap-4 pb-7 text-[15px] sm:ml-[88px]">
+                <div><dt class="text-muted" data-en="Before">Przed</dt><dd data-en="Phone-only bookings, no reminders, patient data in spreadsheets.">Rezerwacje tylko telefonicznie, brak przypomnień, dane pacjentów w arkuszach.</dd></div>
+                <div><dt class="text-muted" data-en="What was built">Co powstało</dt><dd data-en="Booking system for many clinics, SMS and e-mail reminders, change log and encryption of sensitive data.">System rezerwacji dla wielu placówek, przypomnienia SMS i e-mail, dziennik zmian i szyfrowanie danych wrażliwych.</dd></div>
+                <div><dt class="text-muted" data-en="Result">Wynik</dt><dd data-en="58% of visits booked online, missed appointments −35%.">58% wizyt rezerwowanych online, nieodwołane wizyty −35%.</dd></div>
+                <div><dt class="text-muted">Stack</dt><dd class="font-mono text-[13px]">Spring Boot · React · PostgreSQL · Twilio</dd></div>
+              </dl>
+            </div></div>
+          </li>
+          <li class="proj border-b border-rule" data-cat="app" data-open="false">
+            <button type="button" class="proj-toggle grid w-full grid-cols-[1fr_20px] gap-4 py-5 text-left sm:grid-cols-[72px_1fr_200px_20px]" aria-expanded="false">
+              <span class="hidden pt-0.5 font-mono text-[13px] text-muted sm:block">2025</span>
+              <span><span class="block font-medium">LedgerFlow</span><span class="mt-0.5 block text-muted" data-en="Invoicing app for small businesses, connected to the Polish e-invoicing system (KSeF).">Aplikacja do fakturowania dla małych firm, połączona z KSeF.</span></span>
+              <span class="hidden pt-0.5 text-[14px] sm:block" data-en="month close 4 d → 1 d">zamknięcie mies. 4 → 1 dzień</span>
+              <span class="sign pt-0.5 text-right text-muted transition-transform" aria-hidden="true">+</span>
+            </button>
+            <div class="proj-details"><div>
+              <dl class="grid max-w-[64ch] gap-4 pb-7 text-[15px] sm:ml-[88px]">
+                <div><dt class="text-muted" data-en="Before">Przed</dt><dd data-en="Accountants re-typed invoices between three tools.">Księgowi przepisywali faktury między trzema narzędziami.</dd></div>
+                <div><dt class="text-muted" data-en="What was built">Co powstało</dt><dd data-en="Web app with KSeF and bank integrations, invoice scanning and roles for accounting offices.">Aplikacja z integracją KSeF i banków, skanowaniem faktur i rolami dla biur rachunkowych.</dd></div>
+                <div><dt class="text-muted" data-en="Result">Wynik</dt><dd data-en="12,000 users, 99.95% uptime in the first year.">12 tys. użytkowników, 99,95% dostępności w pierwszym roku.</dd></div>
+                <div><dt class="text-muted">Stack</dt><dd class="font-mono text-[13px]">Spring Boot 3 · PostgreSQL · Kafka · React · AWS</dd></div>
+              </dl>
+            </div></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT (E-E-A-T) ===================== -->
+    <section id="o-mnie" class="scroll-mt-16 border-t border-rule" aria-labelledby="about-title">
+      <div class="mx-auto grid max-w-[1120px] gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <h2 id="about-title" class="text-[32px] font-medium leading-tight tracking-[-0.025em] sm:text-[40px]" data-en="Who will build it">Kto to wykona</h2>
+          <div class="mt-6 space-y-4 text-[17px]">
+            <p data-en="I'm Mateusz Kiełbasa. I've been building websites and web applications professionally since 2017 — first at an e-commerce company and a fintech, now independently.">Nazywam się Mateusz Kiełbasa. Zawodowo tworzę strony i aplikacje webowe od 2017 roku — najpierw w firmie e-commerce i w fintechu, dziś na własny rachunek.</p>
+            <p class="text-muted" data-en="I don't outsource your project. The person you talk to on the first call is the one who designs it, writes the code and answers the phone after launch.">Nie podzlecam projektów. Osoba, z którą rozmawiasz na pierwszym spotkaniu, to ta sama, która projektuje, pisze kod i odbiera telefon po uruchomieniu.</p>
           </div>
         </div>
-
-        <div class="reveal">
-          <form id="contact-form" class="rounded-3xl border border-stone-200 bg-white p-7 shadow-soft sm:p-9" novalidate>
-            <div class="grid gap-5 sm:grid-cols-2">
-              <div>
-                <label for="f-name" class="text-[13px] font-medium text-ink" data-en="Name">Imię i nazwisko</label>
-                <input id="f-name" name="name" type="text" required autocomplete="name"
-                       class="mt-2 w-full rounded-xl border border-stone-300 bg-ivory/50 px-4 py-3 text-[15px] text-ink outline-none transition placeholder:text-stone-400 focus:border-ink focus:bg-white focus:ring-4 focus:ring-stone-200"
-                       placeholder="Jan Kowalski" data-en-placeholder="Jane Smith" />
-              </div>
-              <div>
-                <label for="f-email" class="text-[13px] font-medium text-ink">E-mail</label>
-                <input id="f-email" name="email" type="email" required autocomplete="email"
-                       class="mt-2 w-full rounded-xl border border-stone-300 bg-ivory/50 px-4 py-3 text-[15px] text-ink outline-none transition placeholder:text-stone-400 focus:border-ink focus:bg-white focus:ring-4 focus:ring-stone-200"
-                       placeholder="jan@firma.pl" data-en-placeholder="jane@company.com" />
-              </div>
-              <div>
-                <label for="f-type" class="text-[13px] font-medium text-ink" data-en="Engagement type">Rodzaj współpracy</label>
-                <select id="f-type" name="type" class="mt-2 w-full rounded-xl border border-stone-300 bg-ivory/50 px-4 py-3 text-[15px] text-ink outline-none transition focus:border-ink focus:bg-white focus:ring-4 focus:ring-stone-200">
-                  <option value="website" data-en="Website / Landing page">Strona firmowa / Landing page</option>
-                  <option value="app" data-en="Web app / MVP">Aplikacja webowa / MVP</option>
-                  <option value="tm">Time &amp; Materials</option>
-                  <option value="lead">Tech Lead / Fractional CTO</option>
-                  <option value="other" data-en="Something else">Coś innego</option>
-                </select>
-              </div>
-              <div>
-                <label for="f-budget" class="text-[13px] font-medium text-ink" data-en="Budget (net)">Budżet (netto)</label>
-                <select id="f-budget" name="budget" class="mt-2 w-full rounded-xl border border-stone-300 bg-ivory/50 px-4 py-3 text-[15px] text-ink outline-none transition focus:border-ink focus:bg-white focus:ring-4 focus:ring-stone-200">
-                  <option value="<10k" data-en="under €2,500">do 10 000 zł</option>
-                  <option value="10-30k" data-en="€2,500 – €7,000">10 000 – 30 000 zł</option>
-                  <option value="30-80k" data-en="€7,000 – €18,000">30 000 – 80 000 zł</option>
-                  <option value="80k+" data-en="€18,000+">80 000 zł +</option>
-                  <option value="unknown" data-en="Not sure yet">Jeszcze nie wiem</option>
-                </select>
-              </div>
-              <div class="sm:col-span-2">
-                <label for="f-msg" class="text-[13px] font-medium text-ink" data-en="About the project">O projekcie</label>
-                <textarea id="f-msg" name="message" rows="5" required minlength="20"
-                          class="mt-2 w-full resize-y rounded-xl border border-stone-300 bg-ivory/50 px-4 py-3 text-[15px] text-ink outline-none transition placeholder:text-stone-400 focus:border-ink focus:bg-white focus:ring-4 focus:ring-stone-200"
-                          placeholder="Cel, termin, obecna sytuacja, linki…" data-en-placeholder="Goal, deadline, current situation, links…"></textarea>
-              </div>
-              <!-- Honeypot (anti-spam) -->
-              <div class="hidden" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
-              <div class="sm:col-span-2">
-                <label class="flex items-start gap-3 text-[13px] leading-relaxed text-stone-600">
-                  <input id="f-consent" type="checkbox" required class="mt-0.5 h-4 w-4 shrink-0 rounded border-stone-300 accent-ink" />
-                  <span data-en-html="I agree to the processing of my data to answer this inquiry, in line with the <a href='/privacy' class='underline underline-offset-2'>privacy policy</a>.">Wyrażam zgodę na przetwarzanie moich danych w celu odpowiedzi na zapytanie, zgodnie z <a href="/polityka-prywatnosci" class="underline underline-offset-2">polityką prywatności</a>.</span>
-                </label>
-              </div>
-            </div>
-            <div class="mt-7 flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p id="form-status" class="min-h-[1.25rem] text-[13.5px]" role="status" aria-live="polite"></p>
-              <button type="submit" class="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3 text-[15px] font-medium text-ivory transition hover:bg-stone-700 disabled:opacity-60">
-                <span data-en="Send message">Wyślij wiadomość</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </button>
-            </div>
-          </form>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <dl class="border-t border-ink text-[15px]">
+            <div class="grid gap-1 border-b border-rule py-4 sm:grid-cols-[150px_1fr] sm:gap-4"><dt class="text-muted" data-en="2023–now">2023–dziś</dt><dd data-en="Independent. 15+ websites and apps for companies from Poland, Germany and the UK.">Działalność własna. 15+ stron i aplikacji dla firm z Polski, Niemiec i Wielkiej Brytanii.</dd></div>
+            <div class="grid gap-1 border-b border-rule py-4 sm:grid-cols-[150px_1fr] sm:gap-4"><dt class="text-muted">2020–2023</dt><dd data-en="Senior Java developer in fintech — payment systems, ~3 million transactions a month.">Senior Java developer w fintechu — systemy płatności, ok. 3 mln transakcji miesięcznie.</dd></div>
+            <div class="grid gap-1 border-b border-rule py-4 sm:grid-cols-[150px_1fr] sm:gap-4"><dt class="text-muted">2017–2020</dt><dd data-en="Full-stack developer in e-commerce — a store with ~400k users a month.">Full-stack developer w e-commerce — sklep z ok. 400 tys. użytkowników miesięcznie.</dd></div>
+            <div class="grid gap-1 border-b border-rule py-4 sm:grid-cols-[150px_1fr] sm:gap-4"><dt class="text-muted" data-en="Education">Wykształcenie</dt><dd data-en="MSc in Computer Science, AGH University of Kraków">mgr inż. informatyki, AGH w Krakowie</dd></div>
+            <div class="grid gap-1 border-b border-rule py-4 sm:grid-cols-[150px_1fr] sm:gap-4"><dt class="text-muted" data-en="Certificates">Certyfikaty</dt><dd>Oracle Certified Professional: Java SE 17 · AWS Certified Developer</dd></div>
+            <div class="grid gap-1 border-b border-rule py-4 sm:grid-cols-[150px_1fr] sm:gap-4"><dt class="text-muted" data-en="Tools">Narzędzia</dt><dd>Astro, Next.js, React, TypeScript, Java, Spring Boot, PostgreSQL, AWS</dd></div>
+            <div class="grid gap-1 border-b border-rule py-4 sm:grid-cols-[150px_1fr] sm:gap-4"><dt class="text-muted" data-en="Profiles">Profile</dt><dd class="space-x-4"><a class="u" href="https://www.linkedin.com/in/mateusz-kielbasa" rel="me noopener" target="_blank">LinkedIn</a><a class="u" href="https://github.com/kielbek" rel="me noopener" target="_blank">GitHub</a></dd></div>
+          </dl>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== GUIDE (BLOG / SEO) ===================== -->
+    <section id="poradnik" class="scroll-mt-16 border-t border-rule bg-card" aria-labelledby="guide-title">
+      <div class="mx-auto max-w-[1120px] px-5 py-16 sm:px-8 sm:py-24">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <h2 id="guide-title" class="text-[32px] font-medium leading-tight tracking-[-0.025em] sm:text-[40px]" data-en="Before you order: a guide">Zanim zamówisz: poradnik</h2>
+          <a class="u text-[15px]" href="/poradnik/" data-en="All articles →">Wszystkie artykuły →</a>
+        </div>
+        <ul class="mt-10 grid border-t border-ink md:grid-cols-3">
+          <li class="border-b border-rule py-6 md:border-b-0 md:pr-6">
+            <article>
+              <p class="font-mono text-[13px] text-muted"><time datetime="2026-10-14">2026-10-14</time> · <span data-en="8 min">8 min</span></p>
+              <h3 class="mt-2 text-[18px] font-medium leading-snug"><a class="u" href="/poradnik/ile-kosztuje-strona-internetowa" data-en="How much does a website cost in 2026? The price, broken down">Ile kosztuje strona internetowa w 2026? Rozbicie ceny krok po kroku</a></h3>
+              <p class="mt-2 text-[15px] text-muted" data-en="What you pay for in design, build and launch, where quotes differ by 10×, and which savings come back to bite.">Za co płacisz w projekcie, wykonaniu i wdrożeniu, skąd 10-krotne różnice w wycenach i na czym nie warto oszczędzać.</p>
+            </article>
+          </li>
+          <li class="border-b border-rule py-6 md:border-b-0 md:border-l md:px-6">
+            <article>
+              <p class="font-mono text-[13px] text-muted"><time datetime="2026-09-02">2026-09-02</time> · <span data-en="6 min">6 min</span></p>
+              <h3 class="mt-2 text-[18px] font-medium leading-snug"><a class="u" href="/poradnik/jak-zamowic-strone" data-en="How to prepare for ordering a website: a checklist before the first call">Jak przygotować się do zamówienia strony: lista rzeczy przed pierwszą rozmową</a></h3>
+              <p class="mt-2 text-[15px] text-muted" data-en="Domain access, content, examples you like and the questions to ask any developer before you sign.">Dostęp do domeny, treści, przykłady, które Ci się podobają, i pytania, które warto zadać każdemu wykonawcy przed podpisaniem umowy.</p>
+            </article>
+          </li>
+          <li class="py-6 md:border-l md:pl-6">
+            <article>
+              <p class="font-mono text-[13px] text-muted"><time datetime="2026-07-21">2026-07-21</time> · <span data-en="9 min">9 min</span></p>
+              <h3 class="mt-2 text-[18px] font-medium leading-snug"><a class="u" href="/poradnik/core-web-vitals" data-en="Site speed, sales and Google rankings: Core Web Vitals without jargon">Szybkość strony a sprzedaż i pozycja w Google: Core Web Vitals bez żargonu</a></h3>
+              <p class="mt-2 text-[15px] text-muted" data-en="What the three metrics mean, how to check them yourself in 5 minutes and what a fix usually costs.">Co oznaczają trzy wskaźniki, jak sprawdzić je samemu w 5 minut i ile zwykle kosztuje poprawa.</p>
+            </article>
+          </li>
+        </ul>
+        <p class="mt-6 text-[14px] text-muted" data-en="Written by Mateusz Kiełbasa, based on real projects and quotes.">Autor: Mateusz Kiełbasa, na podstawie prawdziwych projektów i wycen.</p>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section id="faq" class="scroll-mt-16 border-t border-rule" aria-labelledby="faq-title">
+      <div class="mx-auto grid max-w-[1120px] gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-12">
+        <h2 id="faq-title" class="text-[32px] font-medium leading-tight tracking-[-0.025em] sm:text-[40px] lg:col-span-4" data-en="Questions before ordering">Pytania przed zamówieniem</h2>
+        <div class="border-t border-ink lg:col-span-8">
+          <details class="border-b border-rule py-4">
+            <summary class="flex cursor-pointer justify-between gap-4 font-medium"><span data-en="Are prices net or gross?">Czy ceny są netto czy brutto?</span><span class="sign font-normal text-muted transition-transform" aria-hidden="true">+</span></summary>
+            <p class="mt-2 max-w-[64ch] text-[15px] text-muted" data-en="Net. 23% VAT is added for Polish clients; companies elsewhere in the EU are invoiced with reverse charge.">Netto. Do faktury doliczam 23% VAT; firmy z innych krajów UE rozliczam w mechanizmie odwrotnego obciążenia.</p>
+          </details>
+          <details class="border-b border-rule py-4">
+            <summary class="flex cursor-pointer justify-between gap-4 font-medium"><span data-en="How is payment split?">Jak wygląda płatność?</span><span class="sign font-normal text-muted transition-transform" aria-hidden="true">+</span></summary>
+            <p class="mt-2 max-w-[64ch] text-[15px] text-muted" data-en="30% after signing, 40% after you accept the test version, 30% after launch. You never pay in full upfront.">30% po podpisaniu umowy, 40% po akceptacji wersji testowej, 30% po uruchomieniu. Nigdy nie płacisz całości z góry.</p>
+          </details>
+          <details class="border-b border-rule py-4">
+            <summary class="flex cursor-pointer justify-between gap-4 font-medium"><span data-en="Who owns the website and the code?">Kto jest właścicielem strony i kodu?</span><span class="sign font-normal text-muted transition-transform" aria-hidden="true">+</span></summary>
+            <p class="mt-2 max-w-[64ch] text-[15px] text-muted" data-en="You. Domain and hosting are registered to you, the code lives in your repository, and after the final invoice I transfer full economic copyright.">Ty. Domena i hosting są zakładane na Ciebie, kod jest w Twoim repozytorium, a po opłaceniu ostatniej faktury przenoszę pełne autorskie prawa majątkowe.</p>
+          </details>
+          <details class="border-b border-rule py-4">
+            <summary class="flex cursor-pointer justify-between gap-4 font-medium"><span data-en="What does the warranty cover?">Co obejmuje gwarancja?</span><span class="sign font-normal text-muted transition-transform" aria-hidden="true">+</span></summary>
+            <p class="mt-2 max-w-[64ch] text-[15px] text-muted" data-en="Free fixes of any bug in my work: 14 days for a landing page, 30 for a company website, 60 for an application. After that you can choose technical care (€90/month) or pay per hour.">Bezpłatne poprawki każdego błędu w mojej pracy: 14 dni dla landing page, 30 dla strony firmowej, 60 dla aplikacji. Później możesz wybrać opiekę techniczną (390 zł/mies.) albo rozliczenie godzinowe.</p>
+          </details>
+          <details class="border-b border-rule py-4">
+            <summary class="flex cursor-pointer justify-between gap-4 font-medium"><span data-en="What do I need to prepare?">Co muszę przygotować?</span><span class="sign font-normal text-muted transition-transform" aria-hidden="true">+</span></summary>
+            <p class="mt-2 max-w-[64ch] text-[15px] text-muted" data-en="Your logo, texts and photos if you have them, access to your current domain and a few sites you like. We'll sort out the rest on the call.">Logo, teksty i zdjęcia, jeśli je masz, dostęp do obecnej domeny i kilka stron, które Ci się podobają. Resztę ustalimy na rozmowie.</p>
+          </details>
+          <details class="border-b border-rule py-4">
+            <summary class="flex cursor-pointer justify-between gap-4 font-medium"><span data-en="What if I want changes during the project?">Co, jeśli w trakcie zechcę coś zmienić?</span><span class="sign font-normal text-muted transition-transform" aria-hidden="true">+</span></summary>
+            <p class="mt-2 max-w-[64ch] text-[15px] text-muted" data-en="Small changes within the agreed scope are included. Anything new gets a written price and date before I start — you decide whether to add it.">Drobne zmiany w uzgodnionym zakresie są w cenie. Każdą nową rzecz wyceniam na piśmie, zanim zacznę — Ty decydujesz, czy ją dodać.</p>
+          </details>
+          <details class="border-b border-rule py-4">
+            <summary class="flex cursor-pointer justify-between gap-4 font-medium"><span data-en="Does a simple website need a backend?">Czy prosta strona potrzebuje backendu?</span><span class="sign font-normal text-muted transition-transform" aria-hidden="true">+</span></summary>
+            <p class="mt-2 max-w-[64ch] text-[15px] text-muted" data-en="Usually not. A static site on a CDN is faster, cheaper to host and safer. A backend (I use Spring Boot) makes sense for user accounts, payments, bookings or a client portal.">Zwykle nie. Statyczna strona na CDN jest szybsza, tańsza w utrzymaniu i bezpieczniejsza. Backend (używam Spring Boot) ma sens przy kontach użytkowników, płatnościach, rezerwacjach lub panelu klienta.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUOTE FORM ===================== -->
+    <section id="wycena" class="scroll-mt-16 border-t border-ink bg-ink text-paper" aria-labelledby="quote-title">
+      <div class="mx-auto grid max-w-[1120px] gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <h2 id="quote-title" class="text-[32px] font-medium leading-tight tracking-[-0.025em] sm:text-[40px]" data-en="Get a free quote">Zamów bezpłatną wycenę</h2>
+          <p class="mt-4 text-[17px] text-[#B9B4AA]" data-en="Describe what you need. I'll reply within one business day, and after a short call you'll get a written proposal with a fixed price within three days.">Opisz, czego potrzebujesz. Odpowiem w ciągu jednego dnia roboczego, a po krótkiej rozmowie w ciągu trzech dni dostaniesz pisemną ofertę ze stałą ceną.</p>
+          <dl class="mt-10 space-y-5 text-[15px]">
+            <div><dt class="text-[#8F8A80]">E-mail</dt><dd class="mt-0.5"><a class="u" href="mailto:kontakt@mateusz-kielbasa.dev">kontakt@mateusz-kielbasa.dev</a></dd></div>
+            <div><dt class="text-[#8F8A80]" data-en="Phone">Telefon</dt><dd class="mt-0.5"><a class="u" href="tel:+48000000000">+48 000 000 000</a></dd></div>
+            <div><dt class="text-[#8F8A80]" data-en="Company">Firma</dt><dd class="mt-0.5" data-en="Mateusz Kiełbasa, sole proprietorship · VAT ID PL0000000000 · Kraków">Mateusz Kiełbasa, JDG · NIP 0000000000 · Kraków</dd></div>
+          </dl>
+        </div>
+
+        <form id="contact-form" class="lg:col-span-7" novalidate>
+          <div class="grid gap-x-8 gap-y-7 sm:grid-cols-2 [&_.field]:border-[#4A4741] [&_.field]:text-paper [&_.field:focus]:border-paper">
+            <label class="block text-[14px] text-[#B9B4AA]"><span data-en="Name">Imię i nazwisko</span>
+              <input name="name" type="text" required autocomplete="name" class="field mt-1" />
+            </label>
+            <label class="block text-[14px] text-[#B9B4AA]">E-mail
+              <input name="email" type="email" required autocomplete="email" class="field mt-1" />
+            </label>
+            <label class="block text-[14px] text-[#B9B4AA]"><span data-en="Phone (optional)">Telefon (opcjonalnie)</span>
+              <input name="phone" type="tel" autocomplete="tel" class="field mt-1" />
+            </label>
+            <label class="block text-[14px] text-[#B9B4AA]"><span data-en="Package">Pakiet</span>
+              <select id="f-type" name="package" class="field mt-1 [&>option]:text-ink">
+                <option value="landing">Landing page</option>
+                <option value="website" selected data-en="Company website">Strona firmowa</option>
+                <option value="app" data-en="Web app / store">Aplikacja / sklep</option>
+                <option value="tm">Time &amp; Materials</option>
+                <option value="lead">Tech lead</option>
+                <option value="unsure" data-en="Not sure — advise me">Nie wiem — doradź</option>
+              </select>
+            </label>
+            <label class="block text-[14px] text-[#B9B4AA]"><span data-en="When do you need it?">Na kiedy?</span>
+              <select name="deadline" class="field mt-1 [&>option]:text-ink">
+                <option value="asap" data-en="As soon as possible">Jak najszybciej</option>
+                <option value="1-2m" data-en="In 1–2 months">W ciągu 1–2 miesięcy</option>
+                <option value="later" data-en="Later / flexible">Później / elastycznie</option>
+              </select>
+            </label>
+            <label class="block text-[14px] text-[#B9B4AA]"><span data-en="Do you have a website now?">Masz obecnie stronę?</span>
+              <input name="current_site" type="text" class="field mt-1" placeholder="np. firma.pl" data-en-placeholder="e.g. company.com" />
+            </label>
+            <label class="block text-[14px] text-[#B9B4AA] sm:col-span-2"><span data-en="What do you need?">Czego potrzebujesz?</span>
+              <textarea name="message" rows="4" required minlength="20" class="field mt-1 resize-y"
+                        placeholder="Czym zajmuje się firma, co ma robić strona, przykłady, które Ci się podobają…"
+                        data-en-placeholder="What your company does, what the site should do, examples you like…"></textarea>
+            </label>
+            <div class="hidden" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" /></div>
+            <label class="flex items-start gap-3 text-[13.5px] text-[#B9B4AA] sm:col-span-2">
+              <input type="checkbox" required class="mt-1 h-4 w-4 shrink-0 accent-[#F6F4EF]" />
+              <span data-en-html="I agree to my data being used to prepare a quote, as described in the <a class='u' href='/privacy'>privacy policy</a>.">Zgadzam się na wykorzystanie moich danych do przygotowania wyceny, zgodnie z <a class="u" href="/polityka-prywatnosci">polityką prywatności</a>.</span>
+            </label>
+          </div>
+          <div class="mt-8 flex flex-wrap items-center gap-5">
+            <button type="submit" class="rounded-[3px] bg-paper px-6 py-3 text-[16px] text-ink transition-colors hover:bg-white disabled:opacity-60" data-en="Send request">Wyślij zapytanie</button>
+            <p id="form-status" class="text-[14px]" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </section>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="border-t border-stone-200">
-    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 text-[13px] text-stone-500 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-      <div>
-        <p>© <span id="year">2026</span> Mateusz Kiełbasa. <span data-en="All rights reserved.">Wszelkie prawa zastrzeżone.</span></p>
-        <p class="mt-1 font-mono text-[11.5px] text-stone-400"><span data-en="Last updated:">Ostatnia aktualizacja:</span> <time datetime="2026-11-06">2026-11-06</time></p>
-      </div>
-      <ul class="flex flex-wrap gap-x-6 gap-y-2">
-        <li><a href="/polityka-prywatnosci" class="hover:text-ink" data-en="Privacy policy">Polityka prywatności</a></li>
-        <li><a href="https://github.com/kielbek" rel="me noopener" target="_blank" class="hover:text-ink">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/mateusz-kielbasa" rel="me noopener" target="_blank" class="hover:text-ink">LinkedIn</a></li>
-        <li><a href="#start" class="hover:text-ink" data-en="Back to top ↑">Do góry ↑</a></li>
-      </ul>
+  <footer class="bg-ink text-[#8F8A80]">
+    <div class="mx-auto flex max-w-[1120px] flex-wrap justify-between gap-4 border-t border-[#33312D] px-5 py-8 text-[13.5px] sm:px-8">
+      <p>© <span id="year">2026</span> Mateusz Kiełbasa · <span data-en="updated">aktualizacja</span> <time datetime="2026-11-06">2026-11-06</time></p>
+      <p class="space-x-5"><a class="u" href="/polityka-prywatnosci" data-en="Privacy">Prywatność</a><a class="u" href="/poradnik/" data-en="Guide">Poradnik</a><a class="u" href="#start" data-en="Top ↑">Na górę ↑</a></p>
     </div>
   </footer>
 
-  <!-- ===================== SCRIPTS ===================== -->
   <script>
   (() => {
     'use strict';
 
-    /* ---------- Config ---------- */
-    // Wstaw adres endpointu (np. https://formspree.io/f/xxxx lub własne API Spring Boot).
-    // Gdy pusty — formularz otwiera klienta poczty (mailto) jako fallback.
+    // Adres endpointu formularza (Formspree / Web3Forms / własne API). Pusty = fallback mailto.
     const FORM_ENDPOINT = '';
     const CONTACT_EMAIL = 'kontakt@mateusz-kielbasa.dev';
     const STORAGE_KEY = 'mk-lang';
 
     const UI = {
-      pl: {
-        sending: 'Wysyłanie…',
-        ok: 'Dziękuję! Odpowiem w ciągu 24 godzin.',
-        mailto: 'Otwieram Twój program pocztowy…',
-        err: 'Coś poszło nie tak. Napisz bezpośrednio na ' + CONTACT_EMAIL,
-        invalid: 'Uzupełnij wymagane pola (wiadomość min. 20 znaków) i zaznacz zgodę.',
-        menuOpen: 'Otwórz menu', menuClose: 'Zamknij menu',
-        subject: 'Zapytanie ze strony',
-      },
-      en: {
-        sending: 'Sending…',
-        ok: 'Thank you! I will reply within 24 hours.',
-        mailto: 'Opening your e-mail client…',
-        err: 'Something went wrong. Please e-mail ' + CONTACT_EMAIL,
-        invalid: 'Please fill in the required fields (message min. 20 characters) and tick the consent box.',
-        menuOpen: 'Open menu', menuClose: 'Close menu',
-        subject: 'Website inquiry',
-      },
+      pl: { sending: 'Wysyłanie…', ok: 'Dzięki! Odezwę się w ciągu jednego dnia roboczego.', mailto: 'Otwieram program pocztowy…',
+            err: 'Nie udało się wysłać. Napisz na ' + CONTACT_EMAIL, invalid: 'Uzupełnij wymagane pola (opis min. 20 znaków) i zaznacz zgodę.',
+            subject: 'Zapytanie o wycenę' },
+      en: { sending: 'Sending…', ok: "Thanks! I'll get back to you within one business day.", mailto: 'Opening your e-mail app…',
+            err: "Couldn't send. Please e-mail " + CONTACT_EMAIL, invalid: 'Please fill in the required fields (description min. 20 characters) and tick the consent box.',
+            subject: 'Quote request' },
     };
 
     /* ---------- i18n ---------- */
     const ATTRS = ['placeholder', 'aria-label', 'content', 'title', 'alt'];
-    const originals = new WeakMap(); // element -> { text?, html?, attrs: {} }
+    const SEL = '[data-en],[data-en-html],' + ATTRS.map(a => '[data-en-' + a + ']').join(',');
+    const originals = new WeakMap();
     let currentLang = 'pl';
 
     function remember(el) {
@@ -1185,32 +771,20 @@
 
     function applyLang(lang) {
       const en = lang === 'en';
-      const sel = '[data-en],[data-en-html],' + ATTRS.map(a => '[data-en-' + a + ']').join(',');
-      document.querySelectorAll(sel).forEach(el => {
+      document.querySelectorAll(SEL).forEach(el => {
         const rec = remember(el);
         if (el.hasAttribute('data-en-html')) el.innerHTML = en ? el.getAttribute('data-en-html') : rec.html;
         else if (el.hasAttribute('data-en')) el.textContent = en ? el.getAttribute('data-en') : rec.text;
-        ATTRS.forEach(a => {
-          if (el.hasAttribute('data-en-' + a)) el.setAttribute(a, en ? el.getAttribute('data-en-' + a) : rec.attrs[a]);
-        });
+        ATTRS.forEach(a => { if (el.hasAttribute('data-en-' + a)) el.setAttribute(a, en ? el.getAttribute('data-en-' + a) : rec.attrs[a]); });
       });
-
       document.documentElement.lang = lang;
       document.getElementById('og-locale').setAttribute('content', en ? 'en_US' : 'pl_PL');
       document.getElementById('og-locale-alt').setAttribute('content', en ? 'pl_PL' : 'en_US');
-
       document.querySelectorAll('.lang-btn').forEach(b => {
-        const active = b.dataset.lang === lang;
-        b.setAttribute('aria-pressed', String(active));
-        b.classList.toggle('text-ink', active);
-        b.classList.toggle('text-stone-500', !active);
+        const on = b.dataset.lang === lang;
+        b.setAttribute('aria-pressed', String(on));
+        b.classList.toggle('text-ink', on); b.classList.toggle('underline', on); b.classList.toggle('text-muted', !on);
       });
-      document.getElementById('lang-pill').style.transform = en ? 'translateX(100%)' : 'translateX(0)';
-
-      const menuBtn = document.getElementById('menu-btn');
-      const open = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-label', open ? UI[lang].menuClose : UI[lang].menuOpen);
-
       currentLang = lang;
     }
 
@@ -1219,133 +793,88 @@
       if (persist) {
         try { localStorage.setItem(STORAGE_KEY, lang); } catch (_) {}
         const url = new URL(location.href);
-        if (lang === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
+        lang === 'en' ? url.searchParams.set('lang', 'en') : url.searchParams.delete('lang');
         history.replaceState(null, '', url);
       }
-      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!animate || reduce) return applyLang(lang);
+      if (!animate || matchMedia('(prefers-reduced-motion: reduce)').matches) return applyLang(lang);
       document.body.classList.add('i18n-fade');
-      setTimeout(() => { applyLang(lang); requestAnimationFrame(() => document.body.classList.remove('i18n-fade')); }, 180);
+      setTimeout(() => { applyLang(lang); requestAnimationFrame(() => document.body.classList.remove('i18n-fade')); }, 150);
     }
 
     function initialLang() {
       const p = new URLSearchParams(location.search).get('lang');
       if (p === 'en' || p === 'pl') return p;
-      try { const s = localStorage.getItem(STORAGE_KEY); if (s) return s; } catch (_) {}
+      try { const s = localStorage.getItem(STORAGE_KEY); if (s === 'pl' || s === 'en') return s; } catch (_) {}
       return (navigator.language || 'pl').toLowerCase().startsWith('pl') ? 'pl' : 'en';
     }
 
     document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => {
       if (b.dataset.lang !== currentLang) setLang(b.dataset.lang);
     }));
-    const startLang = initialLang();
-    if (startLang !== 'pl') setLang(startLang, { animate: false, persist: false });
+    const start = initialLang();
+    if (start !== 'pl') setLang(start, { animate: false, persist: false });
 
-    /* ---------- Header + mobile menu ---------- */
+    /* ---------- Header ---------- */
     const header = document.getElementById('top-header');
-    const onScroll = () => header.classList.toggle('border-stone-200', scrollY > 8);
+    const onScroll = () => header.classList.toggle('border-rule', scrollY > 8);
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
     const menuBtn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
-    const setMenu = open => {
-      menu.classList.toggle('hidden', !open);
-      menuBtn.setAttribute('aria-expanded', String(open));
-      menuBtn.setAttribute('aria-label', open ? UI[currentLang].menuClose : UI[currentLang].menuOpen);
-    };
+    const setMenu = open => { menu.classList.toggle('hidden', !open); menuBtn.setAttribute('aria-expanded', String(open)); };
     menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
     addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
-    /* ---------- Active nav link ---------- */
-    const links = [...document.querySelectorAll('.nav-link')];
-    const navObs = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (!en.isIntersecting) return;
-        links.forEach(l => l.setAttribute('aria-current', String(l.getAttribute('href') === '#' + en.target.id)));
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    ['o-mnie', 'projekty', 'blog', 'cennik', 'kontakt'].forEach(id => navObs.observe(document.getElementById(id)));
-
-    /* ---------- Reveal on scroll ---------- */
-    const revObs = new IntersectionObserver(entries => {
-      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); revObs.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
-
-    /* ---------- Projects: filter + expand ---------- */
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => btn.addEventListener('click', () => {
-      const f = btn.dataset.filter;
-      filterBtns.forEach(b => {
+    /* ---------- Work: filter + expand ---------- */
+    const filters = document.querySelectorAll('.filter-btn');
+    filters.forEach(btn => btn.addEventListener('click', () => {
+      filters.forEach(b => {
         const on = b === btn;
         b.setAttribute('aria-selected', String(on));
-        b.classList.toggle('bg-ink', on); b.classList.toggle('text-ivory', on); b.classList.toggle('border-ink', on);
-        b.classList.toggle('bg-white', !on); b.classList.toggle('text-stone-600', !on); b.classList.toggle('border-stone-300', !on);
+        b.classList.toggle('text-ink', on); b.classList.toggle('underline', on); b.classList.toggle('text-muted', !on);
       });
-      document.querySelectorAll('.proj').forEach(card => {
-        card.hidden = !(f === 'all' || card.dataset.cat === f);
-      });
+      document.querySelectorAll('.proj').forEach(p => { p.hidden = !(btn.dataset.filter === 'all' || p.dataset.cat === btn.dataset.filter); });
     }));
-
-    document.querySelectorAll('.proj').forEach(card => {
-      const btn = card.querySelector('.proj-toggle');
-      const toggle = () => {
-        const open = card.dataset.open !== 'true';
-        card.dataset.open = String(open);
+    document.querySelectorAll('.proj').forEach(p => {
+      const btn = p.querySelector('.proj-toggle');
+      btn.addEventListener('click', () => {
+        const open = p.dataset.open !== 'true';
+        p.dataset.open = String(open);
         btn.setAttribute('aria-expanded', String(open));
-      };
-      btn.addEventListener('click', e => { e.stopPropagation(); toggle(); });
-      card.addEventListener('click', e => { if (!e.target.closest('a, button')) toggle(); });
-      card.style.cursor = 'pointer';
+      });
     });
 
-    /* ---------- Pricing CTA preselects form ---------- */
+    /* ---------- Pricing CTA → preselect package ---------- */
     document.querySelectorAll('.pkg-cta').forEach(a => a.addEventListener('click', () => {
-      const sel = document.getElementById('f-type');
-      if (sel) sel.value = a.dataset.package;
+      document.getElementById('f-type').value = a.dataset.package;
     }));
 
-    /* ---------- Contact form ---------- */
+    /* ---------- Quote form ---------- */
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
-    const say = (msg, ok) => { status.textContent = msg; status.className = 'min-h-[1.25rem] text-[13.5px] ' + (ok ? 'text-emerald-700' : 'text-red-700'); };
+    const say = (msg, ok) => { status.textContent = msg; status.style.color = ok ? '#F6F4EF' : '#F0A58A'; };
 
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const t = UI[currentLang];
-      if (form.website.value) return; // bot
-      if (!form.checkValidity()) {
-        say(t.invalid, false);
-        form.querySelector(':invalid')?.focus();
-        return;
-      }
+      if (form.website.value) return;
+      if (!form.checkValidity()) { say(t.invalid, false); form.querySelector(':invalid')?.focus(); return; }
       const data = Object.fromEntries(new FormData(form));
-      delete data.website;
-      data.lang = currentLang;
+      delete data.website; data.lang = currentLang;
 
       if (!FORM_ENDPOINT) {
-        const body = `${data.message}\n\n— ${data.name} <${data.email}>\nType: ${data.type} · Budget: ${data.budget}`;
+        const body = `${data.message}\n\n— ${data.name} <${data.email}> ${data.phone || ''}\n${data.package} · ${data.deadline} · ${data.current_site || '-'}`;
         location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t.subject + ' — ' + data.name)}&body=${encodeURIComponent(body)}`;
-        say(t.mailto, true);
-        return;
+        return say(t.mailto, true);
       }
-
-      const btn = form.querySelector('button[type=submit]');
+      const btn = form.querySelector('[type=submit]');
       btn.disabled = true; say(t.sending, true);
       try {
-        const res = await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(data),
-        });
+        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) });
         if (!res.ok) throw new Error(res.status);
         form.reset(); say(t.ok, true);
-      } catch (_) {
-        say(t.err, false);
-      } finally {
-        btn.disabled = false;
-      }
+      } catch (_) { say(t.err, false); } finally { btn.disabled = false; }
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
