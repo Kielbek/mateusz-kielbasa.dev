@@ -2,6 +2,7 @@
 # Aktualizacja strony na serwerze. Uruchom na serwerze:  bash deploy/deploy.sh
 # Za pierwszym razem:
 #   sudo git clone https://github.com/Kielbek/mateusz-kielbasa.dev.git /opt/mateuszkielbasa.dev
+#   sudo chown -R "$USER":"$USER" /opt/mateuszkielbasa.dev   # git działa jako zwykły użytkownik
 set -euo pipefail
 
 REPO_DIR=/opt/mateuszkielbasa.dev
