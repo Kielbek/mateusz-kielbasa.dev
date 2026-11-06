@@ -1,0 +1,17 @@
+
+# ---------------- mateuszkielbasa.dev ----------------
+www.mateuszkielbasa.dev {
+	redir https://mateuszkielbasa.dev{uri} permanent
+}
+
+mateuszkielbasa.dev {
+	import common mateuszkielbasa
+	header {
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Frame-Options "SAMEORIGIN"
+	}
+	reverse_proxy mateuszkielbasa:8080 {
+		lb_try_duration 10s
+	}
+}

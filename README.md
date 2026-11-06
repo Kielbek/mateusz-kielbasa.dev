@@ -19,5 +19,19 @@ Na teraz — nie. Statyczny frontend na CDN (Vercel / Netlify / Cloudflare Pages
 Formularz: Formspree / Web3Forms albo jedna funkcja serverless. Blog: Markdown w repo + generator statyczny (Astro).
 Spring Boot ma sens, gdy pojawi się: panel klienta, logowanie, płatności, rezerwacje albo gdy chcesz pokazać backend jako osobny projekt w portfolio.
 
-## Wdrożenie na własny serwer (nginx)
-Pliki w `deploy/`: `nginx-mateuszkielbasa.dev.conf` (konfiguracja vhosta) i `deploy.sh` (aktualizacja z GitHuba).
+## Wdrożenie (Docker + wspólny Caddy, jak AsystentPracy)
+Strona działa jako osobny kontener `mateuszkielbasa` (nginx, port 8080) w sieci `web`.
+Ruch z `mateuszkielbasa.dev` przekazuje do niego wspólny Caddy z `/srv/proxy`.
+
+Pierwsza instalacja na serwerze:
+
+    git clone https://github.com/Kielbek/mateusz-kielbasa.dev.git ~/mateusz-kielbasa.dev
+    bash ~/mateusz-kielbasa.dev/deploy/scripts/install.sh --build   # albo bez --build: obraz z GHCR
+
+Aktualizacja:
+
+    bash ~/mateusz-kielbasa.dev/deploy/scripts/update.sh
+
+Pliki: `Dockerfile`, `deploy/docker/nginx.conf`, `deploy/apps/mateuszkielbasa/docker-compose.yml`,
+`deploy/proxy/Caddyfile.block` (dopisywany do `/srv/proxy/Caddyfile`), `deploy/scripts/*.sh`.
+Obraz w GHCR buduje `.github/workflows/docker.yml` po każdym pushu na `main`.

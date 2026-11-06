@@ -1,0 +1,32 @@
+# mateuszkielbasa.dev – na serwerze: /srv/apps/mateuszkielbasa/docker-compose.yml (+ .env)
+#
+#   bash ~/mateusz-kielbasa.dev/deploy/scripts/update.sh   # aktualizacja
+#   docker compose logs -f --tail=100                       # logi
+#
+# Obraz budowany jest w GitHub Actions (.github/workflows/docker.yml) – serwer tylko go pobiera.
+
+services:
+  web:
+    image: ${APP_IMAGE:-ghcr.io/kielbek/mateusz-kielbasa.dev:latest}
+    container_name: mateuszkielbasa
+    restart: unless-stopped
+    networks:
+      - web
+    # Port NIE jest wystawiony na zewnątrz – ruch idzie wyłącznie przez Caddy.
+    mem_limit: 64m
+    cpus: 0.5
+    pids_limit: 50
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+networks:
+  web:
+    external: true
