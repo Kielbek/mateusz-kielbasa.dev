@@ -1,4 +1,4 @@
-# mateusz-kielbasa.dev
+# mateuszkielbasa.dev
 
 Strona sprzedażowa usług: tworzenie stron internetowych i aplikacji (cennik, porównanie pakietów, zamówienie wyceny). Jeden plik `index.html` (HTML5 + Tailwind Play CDN + vanilla JS), dwujęzyczny PL/EN.
 
@@ -18,3 +18,6 @@ Wybór języka: `?lang=en` → localStorage → język przeglądarki.
 Na teraz — nie. Statyczny frontend na CDN (Vercel / Netlify / Cloudflare Pages) jest szybszy, tańszy i bezpieczniejszy.
 Formularz: Formspree / Web3Forms albo jedna funkcja serverless. Blog: Markdown w repo + generator statyczny (Astro).
 Spring Boot ma sens, gdy pojawi się: panel klienta, logowanie, płatności, rezerwacje albo gdy chcesz pokazać backend jako osobny projekt w portfolio.
+
+## Wdrożenie na własny serwer (nginx)
+Pliki w `deploy/`: `nginx-mateuszkielbasa.dev.conf` (konfiguracja vhosta) i `deploy.sh` (aktualizacja z GitHuba).
