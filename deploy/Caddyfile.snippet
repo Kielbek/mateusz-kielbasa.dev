@@ -1,0 +1,25 @@
+# Dopisz do istniejącego Caddyfile (kontener "caddy").
+# Wymaga zamontowania katalogu ze stroną w kontenerze:
+#   /var/www/mateuszkielbasa.dev  ->  /srv/mateuszkielbasa.dev  (tylko do odczytu)
+# Caddy sam wystawi certyfikat SSL (Let's Encrypt).
+
+mateuszkielbasa.dev {
+	root * /srv/mateuszkielbasa.dev
+	encode zstd gzip
+	try_files {path} {path}.html {path}/
+	file_server
+
+	header {
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Frame-Options "SAMEORIGIN"
+	}
+	@html path / *.html
+	header @html Cache-Control "no-cache"
+	@assets path *.css *.js *.png *.jpg *.jpeg *.webp *.avif *.svg *.ico *.woff2
+	header @assets Cache-Control "public, max-age=2592000"
+}
+
+www.mateuszkielbasa.dev {
+	redir https://mateuszkielbasa.dev{uri} permanent
+}
